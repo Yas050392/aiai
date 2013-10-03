@@ -1,0 +1,14 @@
+<card type="magic">
+	<name>Rolo compressor</name>
+	<cost>mountain,mountain</cost>
+	<information>Passar por cima.</information>
+	<ability>
+		<text>Carta ganha atropelar</text>
+		<effect>
+			<target>TARGETCREATURE</target>
+			<event type="surpassDefense">
+				<oper>true</oper>
+			</event>
+		</effect>
+	</ability>
+</card>

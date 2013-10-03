@@ -1,0 +1,19 @@
+<card type="resource">
+	<name>Montanha</name>
+	<ability>
+		<text>Gera uma montanha</text>
+		<effect>
+			<target>SELF</target>
+			<event type="changeCardOrientation">
+				<oper>tap</oper>
+			</event>
+		</effect>
+		<effect>
+			<target>OWNER</target>
+			<event type="changeResource">
+				<oper>add</oper>
+				<type>mountain</type>
+			</event>
+		</effect>
+	</ability>
+</card>

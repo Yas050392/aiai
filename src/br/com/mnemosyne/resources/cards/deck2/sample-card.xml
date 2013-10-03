@@ -1,0 +1,22 @@
+<card type="character"> 
+	<name>Profeta</name>
+	<information>Um antigo profeta que ajuda varias pessoas</information>
+	<power>10</power>
+	<defense>5</defense>
+	<ability>
+		<text>Toda vez que você compra um card, recebe um de vida.</text>
+		<condition>
+			<source>OWNER</source>
+			<event type="draw" />
+		</condition>
+		<effect>
+			<target>OWNER</target>
+			<event type="changeScore">
+				<oper>increment</oper>
+				<no>1</no>
+			</event>
+		</effect>
+	</ability>
+	<onAssociatedDestroy>NOTHING</onAssociatedDestroy>
+	<onAssociatedMove>SAMEACTION</onAssociatedMove>	
+</card>

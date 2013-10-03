@@ -1,0 +1,19 @@
+<card type="magic">
+	<name>Forca Bruta</name>
+	<cost>mountain</cost>
+	<information>Blood, bone, and sinew are magnified, as is the rage that drives them.</information>
+	<ability>
+		<text>Criatura alvo recebe +3/+3</text>
+		<effect>
+			<target>TARGETCREATURE</target>
+			<event type="changePower">
+				<oper>increment</oper>
+				<no>3</no>
+			</event>
+			<event type="changeDefense">
+				<oper>increment</oper>
+				<no>3</no>
+			</event>
+		</effect>
+	</ability>
+</card>

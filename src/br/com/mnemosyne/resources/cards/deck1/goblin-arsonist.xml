@@ -1,0 +1,23 @@
+<card type="character"> 
+	<name>Goblin Arsonist</name>
+	<cost>mountain</cost>
+	<information>With great power comes great risk of getting yourself killed</information>
+	<ability>
+		<text>Quando Goblin Arsonist morre, você pode dar 1 ponto de dano ao oponente.</text>
+		<condition>
+			<source>SELF</source>
+			<event type="die" />
+		</condition>
+		<effect>
+			<target>OPPONENT</target>
+			<event type="changeScore">
+				<oper>decrement</oper>
+				<no>1</no>
+			</event>
+		</effect>
+	</ability>
+	<power>1</power>
+	<defense>1</defense>
+	<onAssociatedDestroy>NOTHING</onAssociatedDestroy>
+	<onAssociatedMove>SAMEACTION</onAssociatedMove>	
+</card>

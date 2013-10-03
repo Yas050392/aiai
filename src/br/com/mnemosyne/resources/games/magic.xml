@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game name="Magic">
+
+	<player>
+		<name player1="Primeiro jogador" player2="Segundo jogador"/>
+		<score toLose="0" initial="10"/> 
+		<zones>
+			<deck name="DECK" minCards="40" />
+			<hand name="HAND" minCards="0" maxCards="7"/>
+			<graveyard name="GRAVEYARD"/>
+			<playzone name="PLAY" />
+			<graveyard name="REMOVED"/>
+		</zones>
+	</player>
+	<canDefineBlocker>true</canDefineBlocker>
+	<resource owner="player" limitPerTurn="1">
+		<types>
+			<type>mountain</type>
+			<type>swamp</type>
+			<type>island</type>
+			<type>plains</type>
+			<type>forest</type>
+		</types>
+	</resource>
+	<phases>
+		<initial name="inicial">
+			<onStart>
+				<effect>
+					<target>ALLCARDS</target>
+					<event type="changeCardOrientation">
+						<oper>untap</oper>
+					</event>
+				</effect>
+			</onStart>
+			<onEnd>
+				<effects>
+				</effects>
+			</onEnd>
+			<obligatedEvents>Draw</obligatedEvents>
+			<permitedEvents></permitedEvents>
+		</initial>
+		<main name="principal">
+			<onStart>
+				<effects>
+					<effect></effect>
+				</effects>
+			</onStart>
+			<onEnd>
+				<effects>
+				</effects>
+			</onEnd>
+			<obligatedEvents></obligatedEvents>
+			<permitedEvents> PlayCard,UseAbility</permitedEvents>
+		</main>
+		<battle name="batalha">
+			<onStart>
+				<effects>
+					<effect></effect>
+				</effects>
+			</onStart>
+			<onEnd>
+				<effects>
+				</effects>
+			</onEnd>
+			<obligatedEvents></obligatedEvents>
+			<permitedEvents>UseAbility</permitedEvents>
+		</battle>
+		<principal name="principal">
+			<onStart>
+				<effects>
+					<effect></effect>
+				</effects>
+			</onStart>
+			<onEnd>
+				<effects>
+				</effects>
+			</onEnd>
+			<obligatedEvents></obligatedEvents>
+			<permitedEvents>PlayCard,UseAbility</permitedEvents>
+		</principal>
+		<final name="final">
+			<onStart>
+				<effects>
+					<effect></effect>
+				</effects>
+			</onStart>
+			<onEnd>
+				<effect>
+					<event  type="changeResource"></event>
+						<oper>burn</oper>
+				</effect>
+				<effect>
+					<event  type="regenerateDefense"></event>
+				</effect>
+			</onEnd>
+			<obligatedEvents></obligatedEvents>
+			<permitedEvents></permitedEvents>
+		</final>
+	</phases>
+</game>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game name="game">
+	<player>
+		<name player1="Primeiro jogador" player2="Segundo jogador"/>
+		<score toLose="0" initial="20"/> 
+		<zones>
+			<deck name="deck" minCards="40" />
+			<deck name="deckTeste" minCards="40" />
+			<hand name="HAND" minCards="0" maxCards="7"/>
+			<graveyard name="GRAVEYARD" backToGame="true"/>
+			<playzone name="PLAY" />
+			<zone name="REMOVED" backToGame="false"/>
+			<zone name="PILE" />
+			<zone name="PILE2" />
+		</zones>
+	</player>
+	<defaultTarget>PLAYER|CARD</defaultTarget>
+	<whenToSurpassDefense>TAPPED|UNTAPPED|NEVER|ALWAYS</whenToSurpassDefense>
+	<canDefineBlocker>FALSE|TRUE</canDefineBlocker>
+	<resource owner="player|card" limitPerTurn="1">
+		<types>
+			<type>mountain</type>
+			<type>swamp</type>
+			<type>island</type>
+			<type>plains</type>
+			<type>forest</type>
+		</types>
+	</resource>
+	<phases>
+		<initial name="inicial">
+			<onStart>
+				<effects>
+					<effect></effect>
+				</effects>
+			</onStart>
+			<onEnd>
+				<effects>
+				</effects>
+			</onEnd>
+			<obligatedEvents>Draw</obligatedEvents>
+			<permitedEvents></permitedEvents>
+		</initial>
+		<main name="principal">
+			<onStart>
+				<effects>
+					<effect></effect>
+				</effects>
+			</onStart>
+			<onEnd>
+				<effects>
+				</effects>
+			</onEnd>
+			<obligatedEvents></obligatedEvents>
+			<permitedEvents>PlayCard,UseAbility</permitedEvents>
+		</main>
+		<battle name="batalha">
+			<onStart>
+				<effects>
+					<effect></effect>
+				</effects>
+			</onStart>
+			<onEnd>
+				<effects>
+				</effects>
+			</onEnd>
+			<obligatedEvents></obligatedEvents>
+			<permitedEvents>UseAbility</permitedEvents>
+		</battle>
+		<final name="final">
+			<onStart>
+				<effects>
+					<effect></effect>
+				</effects>
+			</onStart>
+			<onEnd>
+				<effects>
+				</effects>
+			</onEnd>
+			<obligatedEvents>burnResource</obligatedEvents>
+			<permitedEvents></permitedEvents>
+		</final>
+	</phases>
+</game>

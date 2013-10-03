@@ -1,0 +1,19 @@
+<card type="resource">
+	<name>Pantano</name>
+	<ability>
+		<text>Gera um pantano</text>
+		<effect>
+			<target>SELF</target>
+			<event type="changeCardOrientation">
+				<oper>tap</oper>
+			</event>
+		</effect>
+		<effect>
+			<target>OWNER</target>
+			<event type="changeResource">
+				<oper>add</oper>
+				<type>swamp</type>
+			</event>
+		</effect>
+	</ability>
+</card>
