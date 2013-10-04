@@ -52,7 +52,7 @@ public class DAOAbility {
 /*  87 */     Element element = this.doc.createElement("ability");
 /*     */ 
 /*  89 */     element.setAttribute("id", /*Integer.toString(criaHabilidade.i)*/"1");
-
+System.out.println(ability.getAction1());
              // element.setAttribute("event", "changeScore"); //teste para ver se funfa, alterar para receber da view a string
 /*     */       //Primeira Hab
 /*  93 */     Element text1 = criaElementoGenerico("text", "pokemon lindao");

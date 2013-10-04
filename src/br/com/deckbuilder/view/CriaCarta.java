@@ -1,8 +1,10 @@
 /*     */ package br.com.deckbuilder.view;
 /*     */ 
+import br.com.deckbuilder.controller.DAOCard;
 /*     */ import br.com.deckbuilder.controller.DAOCardCreature;
 /*     */ import br.com.deckbuilder.controller.DAOCardMagic;
 /*     */ import br.com.deckbuilder.controller.DAOCardResource;
+import br.com.deckbuilder.model.Card;
 /*     */ import br.com.deckbuilder.model.CardCreature;
 /*     */ import br.com.deckbuilder.model.CardMagic;
 /*     */ import br.com.deckbuilder.model.CardResource;
@@ -66,8 +68,27 @@
 /*  59 */       Logger.getLogger(CriaCarta.class.getName()).log(Level.SEVERE, null, ex);
 /*     */     }
 /*     */   }
+/*     */
 /*     */ 
-/*     */   public CardCreature criaCartaCriatura()
+/*     */   public Card createCardMagic() {
+/*  76 */     Card cardMagic = new Card();
+/*  77 */     cardMagic.setType(this.tipoCartaS);
+/*  78 */     cardMagic.setNome(this.txtNomeCarta.getText());
+/*  79 */     cardMagic.setInformacoes(this.txtInformacoes.getText());
+/*  80 */     cardMagic.setCusto(this.custoS);
+/*  81 */     return cardMagic;
+/*     */   }
+/*     */ 
+/*     */   public Card createCardResource() {
+/*  85 */     Card cardResource = new Card();
+/*  86 */     cardResource.setType(this.tipoCartaS);
+/*  87 */     cardResource.setNome(this.txtNomeCarta.getText());
+/*  88 */     cardResource.setInformacoes(this.txtInformacoes.getText());
+/*  89 */     cardResource.setCusto(this.custoS);
+/*  90 */     return cardResource;
+/*     */   }
+
+public CardCreature criaCartaCriatura()
 /*     */   {
 /*  65 */     CardCreature cardCreature1 = new CardCreature();
 /*  66 */     cardCreature1.setType(this.tipoCartaS);
@@ -321,7 +342,11 @@
 /*     */   }//GEN-LAST:event_cboCustoActionPerformed
 /*     */ 
 /*     */   private void jButton1MouseClicked(MouseEvent evt){//GEN-FIRST:event_jButton1MouseClicked
-/* 316 */     this.tipoCusto = this.cboCusto.getSelectedItem();
+
+    
+    
+    
+    /* 316 */     this.tipoCusto = this.cboCusto.getSelectedItem();
 /*     */ 
 /* 318 */     if (this.tipoCusto == "Nenhum") {
 /* 319 */       this.custoS = "none";
@@ -335,9 +360,24 @@
 /* 328 */       this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());
 /*     */ 
 /* 330 */       for (this.i = 0; this.i <= this.qtdCartas; this.i += 1) {
-/* 331 */         DAOCardCreature daoCardCreature = new DAOCardCreature();
+                  criaCartaCriatura();//setter
+                  
+/* 331 */      //   DAOCardCreature daoCardCreature = new DAOCardCreature();
 /*     */ 
-/* 333 */         daoCardCreature.saveCardCreature();
+/* 333 */      //   daoCardCreature.saveCardCreature();
+                  
+              Card cardCreature = new Card();
+              
+/*  66 */     cardCreature.setType(this.tipoCartaS);
+/*  67 */     cardCreature.setNome(this.txtNomeCarta.getText());
+/*  68 */     cardCreature.setInformacoes(this.txtInformacoes.getText());
+/*  69 */     cardCreature.setCusto(this.custoS);
+/*  70 */     cardCreature.setForca(this.txtAtaque.getText());
+/*  71 */     cardCreature.setDefesa(this.txtDefesa.getText());
+
+                  
+                  DAOCard daoCard = new DAOCard();
+                  daoCard.saveCardCreature(cardCreature);
 /*     */       }
 /*     */ 
 /* 337 */       JOptionPane.showMessageDialog(null, "Informações da Carta Criatura '" + this.txtNomeCarta.getText() + "' preenchidas com sucesso!");
