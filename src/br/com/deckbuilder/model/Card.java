@@ -10,6 +10,7 @@ public class Card {
 /*     */   private String type;
 /*     */   private String power;
 /*     */   private String defense;
+            private int qtd;
 
 /*     */ 
 /*     */   public String getId()
@@ -69,5 +70,12 @@ public class Card {
 /*     */   public void setDefesa(String defense) {
 /*  74 */     this.defense = defense;
 /*     */   }
-
+/*     */   public int getQtd()
+/*     */   {
+/*  21 */     return this.qtd;
+/*     */   }
+/*     */ 
+/*     */   public void setQtd(int qtd) {
+/*  25 */     this.qtd = qtd;
+/*     */   }
 }

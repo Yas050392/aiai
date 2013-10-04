@@ -36,19 +36,12 @@ public class CriaDeck extends javax.swing.JFrame {
 /*     */   public DocumentBuilder db;
 /*     */   public Document doc;
 /*     */   public String nomeDeck;
-/*     */   private static CriaDeck singleton;
+
 /*     */   String arquivoLeitura;
 /*     */   String arquivoSaida;
             String nomedodeck;
 
-public static CriaDeck getInstance()
-/*     */   {
-/*  36 */     if (singleton == null) {
-/*  37 */       singleton = new CriaDeck();
-/*     */     }
-/*     */ 
-/*  40 */     return singleton;
-/*     */   }
+
 
     public CriaDeck() {
         initComponents();
@@ -251,7 +244,7 @@ this.arquivoLeitura = "modelo.xml";
 /*     */ 
 /* 257 */     JOptionPane.showMessageDialog(null, "Informações do Deck preenchidas com sucesso!");
 /*     */ 
-/* 259 */     CriaCarta createDeck1Form = CriaCarta.getInstance();
+/* 259 */     CriaCarta createDeck1Form = new CriaCarta();
 /* 260 */     createDeck1Form.setVisible(true);
 /* 261 */     setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
@@ -261,13 +254,13 @@ this.arquivoLeitura = "modelo.xml";
     }//GEN-LAST:event_jButton1MouseEntered
 
     private void cmdvoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmdvoltarMouseClicked
-TelaInicial startScreen = TelaInicial.getInstance();
+TelaInicial startScreen = new TelaInicial();
 /* 266 */     startScreen.setVisible(true);
 /* 267 */     setVisible(false);
     }//GEN-LAST:event_cmdvoltarMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-            TelaInicial telaInicial = TelaInicial.getInstance();
+            TelaInicial telaInicial = new TelaInicial();
             nomedodeck = telaInicial.deckName;
             System.out.println(nomedodeck);
     }//GEN-LAST:event_formWindowActivated

@@ -19,16 +19,6 @@ public class TelaInicial extends javax.swing.JFrame {
 
     public String deckName;
 
-    private static TelaInicial singleton;
-    
-    public static TelaInicial getInstance()
-/*     */   {
-/*  19 */     if (singleton == null) {
-/*  20 */       singleton = new TelaInicial();
-/*     */     }
-/*     */ 
-/*  23 */     return singleton;
-/*     */   }
     
     public TelaInicial() {
         initComponents();
@@ -194,7 +184,7 @@ String caminhoArquivo = "";
     private void botCriarDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botCriarDeckMouseClicked
 deckName = txtNomeDeck.getText();
 /*     */ 
-/* 177 */     CriaDeck criaDeck = CriaDeck.getInstance();
+/* 177 */     CriaDeck criaDeck = new CriaDeck();
 /* 178 */     criaDeck.setVisible(true);
 /* 179 */     setVisible(false);
     }//GEN-LAST:event_botCriarDeckMouseClicked
@@ -234,7 +224,8 @@ deckName = txtNomeDeck.getText();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaInicial().setVisible(true);
-                 TelaInicial telaInicial = TelaInicial.getInstance();
+                 TelaInicial telaInicial = new TelaInicial();
+                 telaInicial.setVisible(true);
             }
         });
     }

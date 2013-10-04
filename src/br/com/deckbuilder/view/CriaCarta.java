@@ -1,47 +1,27 @@
 /*     */ package br.com.deckbuilder.view;
 /*     */ 
 import br.com.deckbuilder.controller.DAOCard;
-/*     */ import br.com.deckbuilder.controller.DAOCardCreature;
-/*     */ import br.com.deckbuilder.controller.DAOCardMagic;
-/*     */ import br.com.deckbuilder.controller.DAOCardResource;
 import br.com.deckbuilder.model.Card;
-/*     */ import br.com.deckbuilder.model.CardCreature;
-/*     */ import br.com.deckbuilder.model.CardMagic;
-/*     */ import br.com.deckbuilder.model.CardResource;
 /*     */ import java.awt.EventQueue;
 /*     */ import java.awt.event.ActionEvent;
 /*     */ import java.awt.event.FocusEvent;
 /*     */ import java.awt.event.ItemEvent;
 /*     */ import java.awt.event.MouseEvent;
-/*     */ import java.util.logging.Level;
-/*     */ import java.util.logging.Logger;
 /*     */ import javax.swing.JFrame;
 /*     */ import javax.swing.JOptionPane;
-/*     */ import javax.xml.parsers.DocumentBuilderFactory;
-/*     */ import javax.xml.parsers.ParserConfigurationException;
 /*     */ 
 /*     */ public class CriaCarta extends JFrame
 /*     */ {
-/*  16 */   String nome = "";
+/*  16 */   //String nome = "";
 /*     */   public Object tipoCarta;
 /*     */   public String tipoCartaS;
 /*     */   public String custoS;
 /*     */   public Object tipoCusto;
 /*     */   public int i;
 /*     */   public int qtdCartas;
-/*     */   private static CriaCarta singleton;
-/*     */   
+
 /*     */ 
-/*     */   public static CriaCarta getInstance()
-/*     */   {
-/*  27 */     if (singleton == null) {
-/*  28 */       singleton = new CriaCarta();
-/*     */     }
-/*     */ 
-/*  31 */     return singleton;
-/*     */   }
-/*     */ 
-/*     */   private CriaCarta()
+/*     */   public CriaCarta()
 /*     */   {
 /*  36 */     initComponents();
 /*     */ 
@@ -57,66 +37,10 @@ import br.com.deckbuilder.model.Card;
 /*  47 */     this.cboCusto.setVisible(false);
 /*  48 */     this.txtTipoCusto.setVisible(false);
 /*  49 */     this.txtQtdCusto.setVisible(false);
-/*     */ 
-/*  51 */     DAOCardCreature daoCardCreature = new DAOCardCreature();
-/*     */ 
-/*  54 */     daoCardCreature.dbf = DocumentBuilderFactory.newInstance();
-/*     */     try
-/*     */     {
-/*  57 */       daoCardCreature.db = daoCardCreature.dbf.newDocumentBuilder();
-/*     */     } catch (ParserConfigurationException ex) {
-/*  59 */       Logger.getLogger(CriaCarta.class.getName()).log(Level.SEVERE, null, ex);
-/*     */     }
+
 /*     */   }
 /*     */
-/*     */ 
-/*     */   public Card createCardMagic() {
-/*  76 */     Card cardMagic = new Card();
-/*  77 */     cardMagic.setType(this.tipoCartaS);
-/*  78 */     cardMagic.setNome(this.txtNomeCarta.getText());
-/*  79 */     cardMagic.setInformacoes(this.txtInformacoes.getText());
-/*  80 */     cardMagic.setCusto(this.custoS);
-/*  81 */     return cardMagic;
-/*     */   }
-/*     */ 
-/*     */   public Card createCardResource() {
-/*  85 */     Card cardResource = new Card();
-/*  86 */     cardResource.setType(this.tipoCartaS);
-/*  87 */     cardResource.setNome(this.txtNomeCarta.getText());
-/*  88 */     cardResource.setInformacoes(this.txtInformacoes.getText());
-/*  89 */     cardResource.setCusto(this.custoS);
-/*  90 */     return cardResource;
-/*     */   }
-
-public CardCreature criaCartaCriatura()
-/*     */   {
-/*  65 */     CardCreature cardCreature1 = new CardCreature();
-/*  66 */     cardCreature1.setType(this.tipoCartaS);
-/*  67 */     cardCreature1.setNome(this.txtNomeCarta.getText());
-/*  68 */     cardCreature1.setInformacoes(this.txtInformacoes.getText());
-/*  69 */     cardCreature1.setCusto(this.custoS);
-/*  70 */     cardCreature1.setForca(this.txtAtaque.getText());
-/*  71 */     cardCreature1.setDefesa(this.txtDefesa.getText());
-/*  72 */     return cardCreature1;
-/*     */   }
-/*     */ 
-/*     */   public CardMagic criaCartaMagica() {
-/*  76 */     CardMagic cardMagic = new CardMagic();
-/*  77 */     cardMagic.setType(this.tipoCartaS);
-/*  78 */     cardMagic.setNome(this.txtNomeCarta.getText());
-/*  79 */     cardMagic.setInformacoes(this.txtInformacoes.getText());
-/*  80 */     cardMagic.setCusto(this.custoS);
-/*  81 */     return cardMagic;
-/*     */   }
-/*     */ 
-/*     */   public CardResource criaCartaRecurso() {
-/*  85 */     CardResource cardResource = new CardResource();
-/*  86 */     cardResource.setType(this.tipoCartaS);
-/*  87 */     cardResource.setNome(this.txtNomeCarta.getText());
-/*  88 */     cardResource.setInformacoes(this.txtInformacoes.getText());
-/*  89 */     cardResource.setCusto(this.custoS);
-/*  90 */     return cardResource;
-/*     */   }
+/*     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -153,6 +77,7 @@ public CardCreature criaCartaCriatura()
         txtAtaque = new javax.swing.JFormattedTextField();
         txtDefesa = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
+        btnFinalizarDeck = new javax.swing.JButton();
 
         setName("CreateDeckForm"); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -268,7 +193,15 @@ public CardCreature criaCartaCriatura()
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 600, 60, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 600, 60, 60));
+
+        btnFinalizarDeck.setText("Finalizar Deck");
+        btnFinalizarDeck.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnFinalizarDeckMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnFinalizarDeck, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 630, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -360,30 +293,31 @@ public CardCreature criaCartaCriatura()
 /* 328 */       this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());
 /*     */ 
 /* 330 */       for (this.i = 0; this.i <= this.qtdCartas; this.i += 1) {
-                  criaCartaCriatura();//setter
+                  //criaCartaCriatura();//setter
                   
 /* 331 */      //   DAOCardCreature daoCardCreature = new DAOCardCreature();
 /*     */ 
 /* 333 */      //   daoCardCreature.saveCardCreature();
                   
-              Card cardCreature = new Card();
+              Card card = new Card();
               
-/*  66 */     cardCreature.setType(this.tipoCartaS);
-/*  67 */     cardCreature.setNome(this.txtNomeCarta.getText());
-/*  68 */     cardCreature.setInformacoes(this.txtInformacoes.getText());
-/*  69 */     cardCreature.setCusto(this.custoS);
-/*  70 */     cardCreature.setForca(this.txtAtaque.getText());
-/*  71 */     cardCreature.setDefesa(this.txtDefesa.getText());
+/*  66 */     card.setType(this.tipoCartaS);
+/*  67 */     card.setNome(this.txtNomeCarta.getText());
+/*  68 */     card.setInformacoes(this.txtInformacoes.getText());
+/*  69 */     card.setCusto(this.custoS);
+/*  70 */     card.setForca(this.txtAtaque.getText());
+/*  71 */     card.setDefesa(this.txtDefesa.getText());
+              card.setQtd(qtdCartas);
 
                   
                   DAOCard daoCard = new DAOCard();
-                  daoCard.saveCardCreature(cardCreature);
+                  daoCard.saveCard(card);
 /*     */       }
 /*     */ 
 /* 337 */       JOptionPane.showMessageDialog(null, "Informações da Carta Criatura '" + this.txtNomeCarta.getText() + "' preenchidas com sucesso!");
 /*     */ 
-/* 339 */       CriaHabilidade createDeck2Form = CriaHabilidade.getInstance();
-/* 340 */       createDeck2Form.setVisible(true);
+/* 339 */       CriaCarta criaHabilidade = new CriaCarta();
+/* 340 */       criaHabilidade.setVisible(true);
 /* 341 */       setVisible(false);
 /*     */     }
 /*     */ 
@@ -392,16 +326,29 @@ public CardCreature criaCartaCriatura()
 /* 347 */       this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());
 /*     */ 
 /* 349 */       for (this.i = 0; this.i <= this.qtdCartas; this.i += 1) {
-/* 350 */         DAOCardMagic daoCardMagic = new DAOCardMagic();
+/* 350 */     //    DAOCardMagic daoCardMagic = new DAOCardMagic();
 /*     */ 
-/* 352 */         daoCardMagic.saveCardMagic();
+/* 352 */     //    daoCardMagic.saveCardMagic();
+    
+              Card card = new Card();
+              
+/*  66 */     card.setType(this.tipoCartaS);
+/*  67 */     card.setNome(this.txtNomeCarta.getText());
+/*  68 */     card.setInformacoes(this.txtInformacoes.getText());
+/*  69 */     card.setCusto(this.custoS);
+/*  70 */     card.setForca("none");
+/*  71 */     card.setDefesa("none");
+
+                  
+                  DAOCard daoCard = new DAOCard();
+                  daoCard.saveCard(card);
 /*     */       }
 /*     */ 
 /* 356 */       JOptionPane.showMessageDialog(null, "Informações da Carta Mágica '" + this.txtNomeCarta.getText() + "' preenchidas com sucesso!");
 /*     */ 
-/* 358 */       CriaHabilidade createDeck2Form = CriaHabilidade.getInstance();
-/* 359 */       createDeck2Form.setVisible(true);
-/* 360 */       setVisible(false);
+/* 358 */       CriaHabilidade criaHabilidade = new CriaHabilidade();
+/* 340 */       criaHabilidade.setVisible(true);
+/* 341 */       setVisible(false);
 /*     */     }
 /*     */ 
 /* 365 */     if (this.tipoCarta == "Recurso")
@@ -409,22 +356,42 @@ public CardCreature criaCartaCriatura()
 /* 367 */       this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());
 /*     */ 
 /* 369 */       for (this.i = 0; this.i <= this.qtdCartas; this.i += 1) {
-/* 370 */         DAOCardResource daoCardResource = new DAOCardResource();
+/* 370 */       //  DAOCardResource daoCardResource = new DAOCardResource();
 /*     */ 
-/* 372 */         daoCardResource.saveCardResource();
+/* 372 */       //  daoCardResource.saveCardResource();
+              Card card = new Card();
+              
+/*  66 */     card.setType(this.tipoCartaS);
+/*  67 */     card.setNome(this.txtNomeCarta.getText());
+/*  68 */     card.setInformacoes(this.txtInformacoes.getText());
+/*  69 */     card.setCusto(this.custoS);
+/*  70 */     card.setForca("none");
+/*  71 */     card.setDefesa("none");
+
+                  
+                  DAOCard daoCard = new DAOCard();
+                  
+                  daoCard.saveCard(card);
+    
 /*     */       }
 /*     */ 
 /* 376 */       JOptionPane.showMessageDialog(null, "Informações da Carta Recurso '" + this.txtNomeCarta.getText() + "' preenchidas com sucesso!");
 /*     */ 
-/* 378 */       CriaHabilidade createDeck2Form = CriaHabilidade.getInstance();
-/* 379 */       createDeck2Form.setVisible(true);
-/* 380 */       setVisible(false);
+/* 378 */       CriaHabilidade criaHabilidade = new CriaHabilidade();
+/* 340 */       criaHabilidade.setVisible(true);
+/* 341 */       setVisible(false);
 /*     */     }
 /*     */   }//GEN-LAST:event_jButton1MouseClicked
 /*     */ 
 /*     */   private void jButton1ActionPerformed(ActionEvent evt){//GEN-FIRST:event_jButton1ActionPerformed
 
 /*     */   }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnFinalizarDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinalizarDeckMouseClicked
+              //    DAOCard daoCard = new DAOCard();
+                  
+              //   daoCard.commitCards();
+    }//GEN-LAST:event_btnFinalizarDeckMouseClicked
 
     /**
      * @param args the command line arguments
@@ -451,13 +418,14 @@ public CardCreature criaCartaCriatura()
 /* 389 */     EventQueue.invokeLater(new Runnable() {
 /*     */       public void run() {
 /* 391 */           // new teste().setVisible(true);
-/* 392 */         CriaCarta createDeck1 = CriaCarta.getInstance();
- createDeck1.setVisible(true);
+/* 392 */         CriaCarta criaCarta = new CriaCarta();
+ criaCarta.setVisible(true);
 /*     */       }
 /*     */     });
 /*     */   }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanImagem;
+    private javax.swing.JButton btnFinalizarDeck;
     private javax.swing.JComboBox cboCusto;
     private javax.swing.JComboBox cboTipoCarta;
     private javax.swing.JLabel deckName;

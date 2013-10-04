@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  * @author Yasmin
  */
 public class CriaHabilidade extends javax.swing.JFrame implements MouseMotionListener{
-private static CriaHabilidade singleton;
+
 /*   21 */   static int posicaoXAumentar = 0;
 /*   22 */   static int posicaoYAumentar = 0;
 /*      */ 
@@ -100,14 +100,6 @@ int baseX = -1;
 /*      */ 
 /* 1950 */   int baseY = -1;
 
-public static CriaHabilidade getInstance()
-/*      */   {
-/*   13 */     if (singleton == null) {
-/*   14 */       singleton = new CriaHabilidade();
-/*      */     }
-/*      */ 
-/*   17 */     return singleton;
-/*      */   }
     public int i;
 
     public Ability criaHabilidade1()
@@ -1936,7 +1928,7 @@ this.lblDiminuir.setVisible(false);
 /*     */ 
 /* 337 */       JOptionPane.showMessageDialog(null, "Informações das Habilidades preenchidas com sucesso!");
 /*     */ 
-/* 339 */       CriaCarta criaCarta = CriaCarta.getInstance();
+/* 339 */       CriaCarta criaCarta = new CriaCarta();
 /* 340 */       criaCarta.setVisible(true);
 /* 341 */       setVisible(false);
     }//GEN-LAST:event_btnSalvarHabMouseClicked

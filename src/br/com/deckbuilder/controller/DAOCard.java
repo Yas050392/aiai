@@ -66,11 +66,11 @@ public class DAOCard {
 /*     */   public Element criaElementoAPartirCartaCriatura(Card cardCreature1)
 /*     */   {
 /*  84 */    // CriaDeck createDeck1 = CriaDeck.getInstance();
-/*     */ CriaCarta createDeck1 = CriaCarta.getInstance();
+/*     */ //Card createDeck1 = new Card();
 /*  87 */     Element element = this.doc.createElement("card");
 /*     */ 
-/*  89 */     element.setAttribute("id", Integer.toString(createDeck1.i));
-/*  90 */     element.setAttribute("type", createDeck1.tipoCartaS);
+/*  89 */     //element.setAttribute("id", Integer.toString(createDeck1.i));
+/*  90 */     element.setAttribute("type", cardCreature1.getType());
 /*     */ 
 /*  93 */     Element nome = criaElementoGenerico("name", cardCreature1.getNome());
 /*  94 */     Element informacoes = criaElementoGenerico("information", cardCreature1.getInformacoes());
@@ -86,11 +86,11 @@ public class DAOCard {
 /* 106 */     return element;
 /*     */   }
 /*     */ 
-/*     */   public void saveCardCreature(Card card)
+/*     */   public void saveCard(Card card)
 /*     */   {
 /* 115 */     String arquivoLeitura = "createDeck.xml";
-/* 116 */     String arquivoSaida = "createDeck1.xml";
-/*     */ 
+     String arquivoSaida = "createDeck1.xml";
+
 /* 119 */     this.dbf = DocumentBuilderFactory.newInstance();
 /*     */     try
 /*     */     {
@@ -98,7 +98,7 @@ public class DAOCard {
 /*     */     } catch (ParserConfigurationException ex) {
 /* 124 */       Logger.getLogger(CriaCarta.class.getName()).log(Level.SEVERE, null, ex);
 /*     */     }
-/*     */ 
+/* 116 */     
 /*     */     try
 /*     */     {
 /* 129 */       this.doc = this.db.parse(arquivoLeitura);
@@ -108,18 +108,34 @@ public class DAOCard {
 /*     */ 
 /* 137 */     Element raiz = this.doc.getDocumentElement();
 /*     */ 
-/* 142 */     CriaCarta createDeck1 = CriaCarta.getInstance();
+/* 142 */     //CriaCarta createDeck1 = new CriaCarta();
 
-/* 143 */     for (createDeck1.i = 1; createDeck1.i <= createDeck1.qtdCartas; createDeck1.i += 1)
+/* 143 */     for (int i = 1; i <= card.getQtd(); i ++)
 /*     */     {
 /* 145 */       Element novaCarta = criaElementoAPartirCartaCriatura(card);
 /*     */ 
 /* 147 */       raiz.appendChild(novaCarta);
 /*     */     }
-/*     */ //    try {
-/* 150 */ //      parse(arquivoLeitura, arquivoSaida);
-/*     */ //    } catch (SAXException | IOException | TransformerException ex) {
-/* 152 */ //      Logger.getLogger(CriaCarta.class.getName()).log(Level.SEVERE, null, ex);
-/*     */ //    }
+  try {
+/* 150 */       parse(arquivoLeitura, arquivoSaida);
+/*     */     } catch (SAXException | IOException | TransformerException ex) {
+/* 152 */       Logger.getLogger(CriaCarta.class.getName()).log(Level.SEVERE, null, ex);
+/*     */     }
+
 /*     */   }
+
+
+       public void commitCards(){
+           
+            String arquivoLeitura = "createDeck.xml";
+            String arquivoSaida = "createDeck1.xml";
+/*     */ 
+
+/*     */ 
+/*     */     try {
+/* 150 */       parse(arquivoLeitura, arquivoSaida);
+/*     */     } catch (SAXException | IOException | TransformerException ex) {
+/* 152 */       Logger.getLogger(CriaCarta.class.getName()).log(Level.SEVERE, null, ex);
+/*     */     }
+}
 }
