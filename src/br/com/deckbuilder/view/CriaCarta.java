@@ -78,6 +78,7 @@ import br.com.deckbuilder.model.Card;
         txtDefesa = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
         btnFinalizarDeck = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setName("CreateDeckForm"); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,7 +128,7 @@ import br.com.deckbuilder.model.Card;
 
         jLabel7.setText("Imagem:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, -1));
-        getContentPane().add(PanImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 570, 480));
+        getContentPane().add(PanImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 400, 170));
 
         jLabel8.setText("Nome:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
@@ -203,6 +204,19 @@ import br.com.deckbuilder.model.Card;
         });
         getContentPane().add(btnFinalizarDeck, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 630, -1, -1));
 
+        jButton2.setText("Habilidades");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 630, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 /*     */ 
@@ -268,6 +282,7 @@ import br.com.deckbuilder.model.Card;
 /* 305 */       this.txtTipoCusto.setVisible(false);
 /* 306 */       this.txtQtdCusto.setVisible(false);
 /*     */     }
+
 /*     */   }//GEN-LAST:event_cboCustoItemStateChanged
 /*     */ 
 /*     */   private void cboCustoActionPerformed(ActionEvent evt){//GEN-FIRST:event_cboCustoActionPerformed
@@ -299,7 +314,7 @@ import br.com.deckbuilder.model.Card;
 /*     */ 
 /* 333 */      //   daoCardCreature.saveCardCreature();
                   
-              Card card = new Card();
+              Card card =  Card.getInstance();
               
 /*  66 */     card.setType(this.tipoCartaS);
 /*  67 */     card.setNome(this.txtNomeCarta.getText());
@@ -330,7 +345,7 @@ import br.com.deckbuilder.model.Card;
 /*     */ 
 /* 352 */     //    daoCardMagic.saveCardMagic();
     
-              Card card = new Card();
+              Card card =  Card.getInstance();
               
 /*  66 */     card.setType(this.tipoCartaS);
 /*  67 */     card.setNome(this.txtNomeCarta.getText());
@@ -359,7 +374,7 @@ import br.com.deckbuilder.model.Card;
 /* 370 */       //  DAOCardResource daoCardResource = new DAOCardResource();
 /*     */ 
 /* 372 */       //  daoCardResource.saveCardResource();
-              Card card = new Card();
+              Card card =  Card.getInstance();
               
 /*  66 */     card.setType(this.tipoCartaS);
 /*  67 */     card.setNome(this.txtNomeCarta.getText());
@@ -388,10 +403,43 @@ import br.com.deckbuilder.model.Card;
 /*     */   }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnFinalizarDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinalizarDeckMouseClicked
-              //    DAOCard daoCard = new DAOCard();
+                  DAOCard daoCard =  DAOCard.getInstance();
                   
-              //   daoCard.commitCards();
+                 
+                  daoCard.commitCards();
+                   JOptionPane.showMessageDialog(null, "Deck SALVO!");
     }//GEN-LAST:event_btnFinalizarDeckMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+
+        Card card =  Card.getInstance();
+            this.tipoCusto = this.cboCusto.getSelectedItem();
+
+/* 318 */     if (this.tipoCusto == "Nenhum") {
+/* 319 */       this.custoS = "none";
+                card.setCusto(custoS);
+/*     */     }
+/*     */     else {
+/* 322 */       this.custoS = this.txtTipoCusto.getText();
+card.setCusto(custoS);
+/*     */     }
+this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());              
+/*  66 */     card.setType(this.tipoCartaS);
+/*  67 */     card.setNome(this.txtNomeCarta.getText());
+/*  68 */     card.setInformacoes(this.txtInformacoes.getText());
+/*  69 */     card.setCusto(this.custoS);
+/*  70 */     card.setForca(this.txtAtaque.getText());
+/*  71 */     card.setDefesa(this.txtDefesa.getText());
+              card.setQtd(qtdCartas);
+              
+               CriaHabilidade criaHabilidade = new CriaHabilidade();
+/* 340 */       criaHabilidade.setVisible(true);
+this.setVisible(false);
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -430,6 +478,7 @@ import br.com.deckbuilder.model.Card;
     private javax.swing.JComboBox cboTipoCarta;
     private javax.swing.JLabel deckName;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -26,6 +26,15 @@ public class DAOCard {
             public DocumentBuilderFactory dbf;
 /*     */   public DocumentBuilder db;
 /*     */   public Document doc;
+private static DAOCard singleton;
+
+public static DAOCard getInstance(){
+            if(DAOCard.singleton == null){
+            DAOCard.singleton = new DAOCard ();
+        }
+        return DAOCard.singleton;
+    }
+
 /*     */ 
 /*     */   public void parse(String arquivoLeitura, String arquivoSaida)
 /*     */     throws SAXException, IOException, TransformerException
@@ -63,32 +72,62 @@ public class DAOCard {
 /*  78 */     return elementoGenerico;
 /*     */   }
 /*     */ 
-/*     */   public Element criaElementoAPartirCartaCriatura(Card cardCreature1)
+/*     */   public Element criaElementoAPartirCartaCriatura(Card card)
 /*     */   {
+     Card card1 = Card.getInstance();
 /*  84 */    // CriaDeck createDeck1 = CriaDeck.getInstance();
 /*     */ //Card createDeck1 = new Card();
 /*  87 */     Element element = this.doc.createElement("card");
-/*     */ 
+
+
+
+/*     */ //FORM DO CRIA CARTA
 /*  89 */     //element.setAttribute("id", Integer.toString(createDeck1.i));
-/*  90 */     element.setAttribute("type", cardCreature1.getType());
-/*     */ 
-/*  93 */     Element nome = criaElementoGenerico("name", cardCreature1.getNome());
-/*  94 */     Element informacoes = criaElementoGenerico("information", cardCreature1.getInformacoes());
-/*  95 */     Element custo = criaElementoGenerico("cost", cardCreature1.getCusto());
-/*  96 */     Element forca = criaElementoGenerico("power", cardCreature1.getForca());
-/*  97 */     Element defesa = criaElementoGenerico("defense", cardCreature1.getDefesa());
+/*  90 */     element.setAttribute("type", card1.getType());
+/*     */   
+/*  93 */     Element nome = criaElementoGenerico("name",card1.getNome());
+/*  94 */     Element informacoes = criaElementoGenerico("information", card1.getInformacoes());
+/*  95 */     Element custo = criaElementoGenerico("cost", card1.getCusto());
+/*  96 */     Element forca = criaElementoGenerico("power", card1.getForca());
+/*  97 */     Element defesa = criaElementoGenerico("defense", card1.getDefesa());
+
 /*     */ 
 /* 101 */     element.appendChild(nome);
 /* 102 */     element.appendChild(informacoes);
 /* 103 */     element.appendChild(custo);
 /* 104 */     element.appendChild(forca);
 /* 105 */     element.appendChild(defesa);
+//NodeList abilities = element.getElementsByTagName("name");
+/*  82 */         //abilities.item(0).setTextContent("Profeta que abraça o fofinho");
+
+           //FORM DO CRIA HABILIDADE
+          for (int i = 0; i <= 2; i ++)
+         {
+             
+            // Element raiz = doc.getDocumentElement();
+             // raiz.getElementsByTagName("character");
+             
+             // elemento.setAttribute("type", "testinho");
+             
+              
+    Element txtAbility = criaElementoGenerico("ability", card1.getTxtAbility1Item(i) + card1.getTxtAbility2Item(i) + card1.getTxtAbility3Item(i) + card1.getTxtAbility4Item(i) );
+     Element target = criaElementoGenerico("target", card1.getTargetItem(i));
+    Element oper = criaElementoGenerico("oper", card1.getOperItem(i));
+     Element no = criaElementoGenerico("no", card1.getNoItem(i));
+
+    element.appendChild(txtAbility);
+     element.appendChild(target);
+     element.appendChild(oper);
+    element.appendChild(no);
+
+          }
+
 /* 106 */     return element;
 /*     */   }
 /*     */ 
 /*     */   public void saveCard(Card card)
 /*     */   {
-/* 115 */     String arquivoLeitura = "createDeck.xml";
+/* 115 */     String arquivoLeitura = "modelo.xml";
      String arquivoSaida = "createDeck1.xml";
 
 /* 119 */     this.dbf = DocumentBuilderFactory.newInstance();
@@ -116,18 +155,19 @@ public class DAOCard {
 /*     */ 
 /* 147 */       raiz.appendChild(novaCarta);
 /*     */     }
-  try {
-/* 150 */       parse(arquivoLeitura, arquivoSaida);
-/*     */     } catch (SAXException | IOException | TransformerException ex) {
-/* 152 */       Logger.getLogger(CriaCarta.class.getName()).log(Level.SEVERE, null, ex);
-/*     */     }
+ // try {
+//commitCards();
+/* 150 */ //     parse(arquivoLeitura, arquivoSaida);
+/*     */ //    } catch (SAXException | IOException | TransformerException ex) {
+/* 152 */  //     Logger.getLogger(CriaCarta.class.getName()).log(Level.SEVERE, null, ex);
+/*     */  //   }
 
 /*     */   }
 
 
        public void commitCards(){
            
-            String arquivoLeitura = "createDeck.xml";
+            String arquivoLeitura = "modelo.xml";
             String arquivoSaida = "createDeck1.xml";
 /*     */ 
 
@@ -139,3 +179,4 @@ public class DAOCard {
 /*     */     }
 }
 }
+

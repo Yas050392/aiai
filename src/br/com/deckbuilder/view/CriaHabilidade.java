@@ -4,11 +4,8 @@
  */
 package br.com.deckbuilder.view;
 
-import br.com.deckbuilder.controller.DAOAbility;
-import br.com.deckbuilder.model.Ability;
-import br.com.deckbuilder.model.Action;
-import br.com.deckbuilder.model.Attr;
-import br.com.deckbuilder.model.Target;
+import br.com.deckbuilder.controller.DAOCard;
+import br.com.deckbuilder.model.Card;
 import java.awt.Color;
 /*      */ import java.awt.Component;
 /*      */ import java.awt.event.MouseEvent;
@@ -100,67 +97,7 @@ int baseX = -1;
 /*      */ 
 /* 1950 */   int baseY = -1;
 
-    public int i;
 
-    public Ability criaHabilidade1()
-/*     */   {
-              Action action = Action.getInstance();
-              Attr attr = Attr.getInstance();
-              Target target = Target.getInstance();
-              
-/*  65 */     Ability ability = new Ability();
-
-/*  67 */     ability.setAction1(action.action1);
-
-/*  68 */     ability.setAttr1(attr.attr1);
-
-/*  69 */     ability.setTarget1(target.target1);
-
-/*  70 */     ability.setNo1(attr.no1);
-
-///*  71 */     ability.setText1(lblTexto);
-/*  72 */     return ability;
-/*     */   }
-    
-     public Ability criaHabilidade2()
-/*     */   {
-              Action action = Action.getInstance();
-              Attr attr = Attr.getInstance();
-              Target target = Target.getInstance();
-              
-/*  65 */     Ability ability = new Ability();
-
-/*  67 */     ability.setAction2(action.action2);
-
-/*  68 */     ability.setAttr2(attr.attr2);
-
-/*  69 */     ability.setTarget2(target.target2);
-
-/*  70 */     ability.setNo2(attr.no2);
-
-///*  71 */     ability.setText1(lblTexto);
-/*  72 */     return ability;
-/*     */   }
-     
-      public Ability criaHabilidade3()
-/*     */   {
-              Action action = Action.getInstance();
-              Attr attr = Attr.getInstance();
-              Target target = Target.getInstance();
-              
-/*  65 */     Ability ability = new Ability();
-
-/*  67 */     ability.setAction3(action.action3);
-
-/*  68 */     ability.setAttr3(attr.attr3);
-
-/*  69 */     ability.setTarget3(target.target3);
-
-/*  70 */     ability.setNo3(attr.no3);
-
-///*  71 */     ability.setText1(lblTexto);
-/*  72 */     return ability;
-/*     */   }
 
     public CriaHabilidade() {
         initComponents();
@@ -332,7 +269,7 @@ int baseX = -1;
         });
         getContentPane().add(btnDiminuir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, -1, -1));
 
-        btnAtaque.setText("de Ataque");
+        btnAtaque.setText("de Força");
         btnAtaque.setName("btnAtaque"); // NOI18N
         btnAtaque.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -855,7 +792,7 @@ int baseX = -1;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDiminuirMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDiminuirMouseReleased
-    Ability action = Ability.getInstance();
+    Card action = Card.getInstance();
 
     
         Component bDiminuir = evt.getComponent();
@@ -872,7 +809,8 @@ int baseX = -1;
 /*  876 */           bDiminuir.setLocation(posicaoXDiminuir, posicaoYDiminuir);
 /*  877 */           this.flagPrimeiraHab = 1;
 /*  878 */           this.flagPrimeiraHabDiminuir = 1;
-                      action.setAction1("DECREMENT");
+                      action.setOperItem("DECREMENT",0);
+                      action.setTxtAbility1Item("Diminui", 0);
                     
 /*      */         }
 /*      */       }
@@ -893,7 +831,9 @@ int baseX = -1;
 /*  896 */           bDiminuir.setLocation(posicaoXDiminuir, posicaoYDiminuir);
 /*  897 */           this.flagSegundaHab = 1;
 /*  898 */           this.flagSegundaHabDiminuir = 1;
-action.action2 = "DECREMENT";
+//action.action2 = "DECREMENT";
+action.setOperItem("DECREMENT",1);
+                      action.setTxtAbility1Item("Diminui", 1);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -911,7 +851,9 @@ action.action2 = "DECREMENT";
 /*  914 */           bDiminuir.setLocation(posicaoXDiminuir, posicaoYDiminuir);
 /*  915 */           this.flagTerceiraHab = 1;
 /*  916 */           this.flagTerceiraHabDiminuir = 1;
-action.action3 = "DECREMENT";
+//action.action3 = "DECREMENT";
+action.setOperItem("DECREMENT",2);
+                      action.setTxtAbility1Item("Diminui ", 2);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -933,7 +875,7 @@ mousePressed(evt);
 
     private void btnAtaqueMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtaqueMouseReleased
 
- Ability attr = Ability.getInstance();
+ Card attr = Card.getInstance();
 
         Component bAtaque = evt.getComponent();
 /*      */ 
@@ -949,7 +891,9 @@ mousePressed(evt);
 /* 1117 */           bAtaque.setLocation(posicaoXAtaque, posicaoYAtaque);
 /* 1118 */           this.flagPrimeiraHab1 = 1;
 /* 1119 */           this.flagPrimeiraHabAtaque = 1;
-attr.attr1 = "changePower";
+//attr.attr1 = "changePower";
+                      attr.setEventItem("changePower",0);
+                                            attr.setTxtAbility3Item(" de Força", 0);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -969,7 +913,9 @@ attr.attr1 = "changePower";
 /* 1137 */           bAtaque.setLocation(posicaoXAtaque, posicaoYAtaque);
 /* 1138 */           this.flagSegundaHab1 = 1;
 /* 1139 */           this.flagSegundaHabAtaque = 1;
-attr.attr2 = "changePower";
+//attr.attr2 = "changePower";
+ attr.setEventItem("changePower",1);
+                       attr.setTxtAbility3Item(" de Força", 1);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -987,7 +933,9 @@ attr.attr2 = "changePower";
 /* 1155 */           bAtaque.setLocation(posicaoXAtaque, posicaoYAtaque);
 /* 1156 */           this.flagTerceiraHab1 = 1;
 /* 1157 */           this.flagTerceiraHabAtaque = 1;
-attr.attr3 = "changePower";
+//attr.attr3 = "changePower";
+ attr.setEventItem("changePower",2);
+                       attr.setTxtAbility3Item(" de Força", 2);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1008,7 +956,7 @@ mousePressed(evt);
 
     private void btnDefesaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDefesaMouseReleased
 
- Ability attr = Ability.getInstance();
+ Card attr = Card.getInstance();
 
  
         Component bDefesa = evt.getComponent();
@@ -1025,7 +973,9 @@ mousePressed(evt);
 /* 1271 */           bDefesa.setLocation(posicaoXDefesa, posicaoYDefesa);
 /* 1272 */           this.flagPrimeiraHab1 = 1;
 /* 1273 */           this.flagPrimeiraHabDefesa = 1;
-attr.attr1 = "changeDefense";
+//attr.attr1 = "changeDefense";
+ attr.setEventItem("changeDefense",0);
+ attr.setTxtAbility3Item(" de Defesa", 0);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1045,7 +995,9 @@ attr.attr1 = "changeDefense";
 /* 1291 */           bDefesa.setLocation(posicaoXDefesa, posicaoYDefesa);
 /* 1292 */           this.flagSegundaHab1 = 1;
 /* 1293 */           this.flagSegundaHabDefesa = 1;
-attr.attr2 = "changeDefense";
+//attr.attr2 = "changeDefense";
+ attr.setEventItem("changeDefense",1);
+  attr.setTxtAbility3Item(" de Defesa", 1);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1063,7 +1015,9 @@ attr.attr2 = "changeDefense";
 /* 1309 */           bDefesa.setLocation(posicaoXDefesa, posicaoYDefesa);
 /* 1310 */           this.flagTerceiraHab1 = 1;
 /* 1311 */           this.flagTerceiraHabDefesa = 1;
-attr.attr3 = "changeDefense";
+//attr.attr3 = "changeDefense";
+ attr.setEventItem("changeDefense",2);
+  attr.setTxtAbility3Item(" de Defesa", 2);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1085,7 +1039,7 @@ mousePressed(evt);
 
     private void btnPVMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPVMouseReleased
 
- Ability attr = Ability.getInstance();
+ Card attr = Card.getInstance();
 
         Component bPV = evt.getComponent();
 /*      */ 
@@ -1101,7 +1055,9 @@ mousePressed(evt);
 /* 1339 */           bPV.setLocation(posicaoXPV, posicaoYPV);
 /* 1340 */           this.flagPrimeiraHab1 = 1;
 /* 1341 */           this.flagPrimeiraHabPV = 1;
-attr.attr1 = "changeScore";
+//attr.attr1 = "changeScore";
+ attr.setEventItem("changeScore",0);
+  attr.setTxtAbility3Item(" dos Pontos de Vida", 0);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1121,7 +1077,9 @@ attr.attr1 = "changeScore";
 /* 1359 */           bPV.setLocation(posicaoXPV, posicaoYPV);
 /* 1360 */           this.flagSegundaHab1 = 1;
 /* 1361 */           this.flagSegundaHabPV = 1;
-attr.attr2 = "changeScore";
+//attr.attr2 = "changeScore";
+ attr.setEventItem("changeScore",1);
+   attr.setTxtAbility3Item(" dos Pontos de Vida", 1);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1139,7 +1097,9 @@ attr.attr2 = "changeScore";
 /* 1377 */           bPV.setLocation(posicaoXPV, posicaoYPV);
 /* 1378 */           this.flagTerceiraHab1 = 1;
 /* 1379 */           this.flagTerceiraHabPV = 1;
-attr.attr3 = "changeScore";
+//attr.attr3 = "changeScore";
+ attr.setEventItem("changeScore",2);
+   attr.setTxtAbility3Item(" dos Pontos de Vida", 2);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1160,7 +1120,7 @@ mousePressed(evt);
     }//GEN-LAST:event_btnPVMouseDragged
 
     private void btnDestaCartaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDestaCartaMouseReleased
-Ability target = Ability.getInstance();
+Card target = Card.getInstance();
  
         Component bDestaCarta = evt.getComponent();
 /*      */ 
@@ -1175,7 +1135,9 @@ Ability target = Ability.getInstance();
 /* 1446 */           bDestaCarta.setLocation(posicaoXDestaCarta, posicaoYDestaCarta);
 /* 1447 */           this.flagPrimeiraHab2 = 1;
 /* 1448 */           this.flagPrimeiraHabDestaCarta = 1;
-target.target1 = "OWNER";
+//target.target1 = "OWNER";
+ target.setTargetItem("OWNER",0);
+ target.setTxtAbility4Item(" desta carta", 0);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1194,7 +1156,9 @@ target.target1 = "OWNER";
 /* 1465 */           bDestaCarta.setLocation(posicaoXDestaCarta, posicaoYDestaCarta);
 /* 1466 */           this.flagSegundaHab2 = 1;
 /* 1467 */           this.flagSegundaHabDestaCarta = 1;
-target.target2 = "OWNER";
+//target.target2 = "OWNER";
+target.setTargetItem("OWNER",1);
+ target.setTxtAbility4Item(" desta Carta", 1);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1211,7 +1175,9 @@ target.target2 = "OWNER";
 /* 1482 */           bDestaCarta.setLocation(posicaoXDestaCarta, posicaoYDestaCarta);
 /* 1483 */           this.flagTerceiraHab2 = 1;
 /* 1484 */           this.flagTerceiraHabDestaCarta = 1;
-target.target3 = "OWNER";
+//target.target3 = "OWNER";
+target.setTargetItem("OWNER",2);
+ target.setTxtAbility4Item(" desta Carta", 2);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1231,7 +1197,7 @@ mousePressed(evt);
     }//GEN-LAST:event_btnDestaCartaMouseDragged
 
     private void btnOutraCartaJogadorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOutraCartaJogadorMouseReleased
- Ability target = Ability.getInstance();
+ Card target = Card.getInstance();
  
  Component bOutraCartaJogador = evt.getComponent();
 /*      */ 
@@ -1246,7 +1212,9 @@ mousePressed(evt);
 /* 1510 */           bOutraCartaJogador.setLocation(posicaoXOutraCartaJogador, posicaoYOutraCartaJogador);
 /* 1511 */           this.flagPrimeiraHab2 = 1;
 /* 1512 */           this.flagPrimeiraHabOutraCartaJogador = 1;
-target.target1 = "TARGETCREATURE";
+//target.target1 = "TARGETCREATURE";
+target.setTargetItem("TARGETCREATURE",0);
+target.setTxtAbility4Item(" de outra carta do Jogador", 0);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1265,7 +1233,9 @@ target.target1 = "TARGETCREATURE";
 /* 1529 */           bOutraCartaJogador.setLocation(posicaoXOutraCartaJogador, posicaoYOutraCartaJogador);
 /* 1530 */           this.flagSegundaHab2 = 1;
 /* 1531 */           this.flagSegundaHabOutraCartaJogador = 1;
-target.target2 = "TARGETCREATURE";
+//target.target2 = "TARGETCREATURE";
+target.setTargetItem("TARGETCREATURE",1);
+target.setTxtAbility4Item(" de outra carta do Jogador", 1);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1282,7 +1252,9 @@ target.target2 = "TARGETCREATURE";
 /* 1546 */           bOutraCartaJogador.setLocation(posicaoXOutraCartaJogador, posicaoYOutraCartaJogador);
 /* 1547 */           this.flagTerceiraHab2 = 1;
 /* 1548 */           this.flagTerceiraHabOutraCartaJogador = 1;
-target.target3 = "TARGETCREATURE";
+//target.target3 = "TARGETCREATURE";
+target.setTargetItem("TARGETCREATURE",2);
+target.setTxtAbility4Item(" de outra carta do Jogador", 2);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1306,7 +1278,7 @@ mousePressed(evt);
     }//GEN-LAST:event_txtValorMouseReleased
 
     private void txtValorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtValorMouseExited
- Ability attr = Ability.getInstance();
+ Card attr = Card.getInstance();
         Component bValor = evt.getComponent();
 /*      */ 
 /* 1042 */     int x = bValor.getX();
@@ -1319,7 +1291,9 @@ mousePressed(evt);
 /* 1051 */       this.txtValor.setText("");
 /* 1052 */       this.seta4.setVisible(true);
 /* 1053 */       bValor.setLocation(posicaoXValor, posicaoYValor);
-                    attr.no1 = lblValor.getText();
+                    //attr.no1 = lblValor.getText();
+                    attr.setNoItem(lblValor.getText(),0);
+                    attr.setTxtAbility2Item(lblValor.getText() + " pontos", 0);
 /*      */     }
 /*      */     else {
 /* 1056 */       bValor.setLocation(posicaoXValor, posicaoYValor);
@@ -1332,7 +1306,9 @@ mousePressed(evt);
 /* 1064 */       this.txtValor.setText("");
 /* 1065 */       this.seta5.setVisible(true);
 /* 1066 */       bValor.setLocation(posicaoXValor, posicaoYValor);
- attr.no2 = lblValor1.getText();
+ //attr.no2 = lblValor1.getText();
+attr.setNoItem(lblValor1.getText(),1);
+ attr.setTxtAbility2Item(lblValor.getText() + " pontos", 1);
 /*      */     }
 /*      */     else {
 /* 1069 */       bValor.setLocation(posicaoXValor, posicaoYValor);
@@ -1345,7 +1321,9 @@ mousePressed(evt);
 /* 1077 */       this.txtValor.setText("");
 /* 1078 */       this.seta6.setVisible(true);
 /* 1079 */       bValor.setLocation(posicaoXValor, posicaoYValor);
- attr.no3 = lblValor2.getText();
+ //attr.no3 = lblValor2.getText();
+attr.setNoItem(lblValor2.getText(),2);
+ attr.setTxtAbility2Item(lblValor.getText() + " pontos", 2);
 /*      */     }
 /*      */     else {
 /* 1082 */       bValor.setLocation(posicaoXValor, posicaoYValor);
@@ -1361,7 +1339,7 @@ mousePressed(evt);
     }//GEN-LAST:event_txtValorMouseDragged
 
     private void btnAumentarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAumentarMouseReleased
-                    Ability action = Ability.getInstance();
+                    Card action = Card.getInstance();
 
         Component bAumentar = evt.getComponent();
 /*      */ 
@@ -1377,7 +1355,9 @@ mousePressed(evt);
 /*  800 */           bAumentar.setLocation(posicaoXAumentar, posicaoYAumentar);
 /*  801 */           this.flagPrimeiraHab = 1;
 /*  802 */           this.flagPrimeiraHabAumentar = 1;
-action.action1 = "INCREMENT";
+//action.action1 = "INCREMENT";
+action.setOperItem("INCREMENT", 0);
+                      action.setTxtAbility1Item("Aumenta ", 0);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1397,7 +1377,9 @@ action.action1 = "INCREMENT";
 /*  820 */           bAumentar.setLocation(posicaoXAumentar, posicaoYAumentar);
 /*  821 */           this.flagSegundaHab = 1;
 /*  822 */           this.flagSegundaHabAumentar = 1;
-action.action2 = "INCREMENT";
+//action.action2 = "INCREMENT";
+action.setOperItem("INCREMENT", 1);
+                      action.setTxtAbility1Item("Aumenta ", 1);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1415,7 +1397,9 @@ action.action2 = "INCREMENT";
 /*  837 */           bAumentar.setLocation(posicaoXAumentar, posicaoYAumentar);
 /*  838 */           this.flagTerceiraHab = 1;
 /*  839 */           this.flagTerceiraHabAumentar = 1;
-action.action3 = "INCREMENT";
+//action.action3 = "INCREMENT";
+action.setOperItem("INCREMENT", 2);
+                      action.setTxtAbility1Item("Aumenta ", 2);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1438,7 +1422,7 @@ mousePressed(evt);
     }//GEN-LAST:event_btnAumentarMouseDragged
 
     private void btnOutraCartaOponenteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOutraCartaOponenteMouseReleased
- Ability target = Ability.getInstance();
+ Card target = Card.getInstance();
  
         Component bOutraCartaOponente = evt.getComponent();
 /*      */ 
@@ -1453,7 +1437,9 @@ mousePressed(evt);
 /* 1574 */           bOutraCartaOponente.setLocation(posicaoXOutraCartaOponente, posicaoYOutraCartaOponente);
 /* 1575 */           this.flagPrimeiraHab2 = 1;
 /* 1576 */           this.flagPrimeiraHabOutraCartaOponente = 1;
-target.target1 = "TARGETCREATURE";
+//target.target1 = "TARGETCREATURE";
+target.setTargetItem("TARGETCREATURE", 0);
+target.setTxtAbility4Item(" de outra carta do Oponente", 0);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1472,7 +1458,9 @@ target.target1 = "TARGETCREATURE";
 /* 1593 */           bOutraCartaOponente.setLocation(posicaoXOutraCartaOponente, posicaoYOutraCartaOponente);
 /* 1594 */           this.flagSegundaHab2 = 1;
 /* 1595 */           this.flagSegundaHabOutraCartaOponente = 1;
-target.target2 = "TARGETCREATURE";
+//target.target2 = "TARGETCREATURE";
+target.setTargetItem("TARGETCREATURE", 1);
+target.setTxtAbility4Item(" de outra carta do Oponente", 1);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1489,7 +1477,9 @@ target.target2 = "TARGETCREATURE";
 /* 1610 */           bOutraCartaOponente.setLocation(posicaoXOutraCartaOponente, posicaoYOutraCartaOponente);
 /* 1611 */           this.flagTerceiraHab2 = 1;
 /* 1612 */           this.flagTerceiraHabOutraCartaOponente = 1;
-target.target3 = "TARGETCREATURE";
+//target.target3 = "TARGETCREATURE";
+target.setTargetItem("TARGETCREATURE", 2);
+target.setTxtAbility4Item(" de outra carta do Oponente", 2);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1509,7 +1499,7 @@ mousePressed(evt);
     }//GEN-LAST:event_btnOutraCartaOponenteMouseDragged
 
     private void btnJogadorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnJogadorMouseReleased
- Ability target = Ability.getInstance();
+ Card target = Card.getInstance();
  
         Component bJogador = evt.getComponent();
 /*      */ 
@@ -1524,7 +1514,9 @@ mousePressed(evt);
 /* 1638 */           bJogador.setLocation(posicaoXJogador, posicaoYJogador);
 /* 1639 */           this.flagPrimeiraHab2 = 1;
 /* 1640 */           this.flagPrimeiraHabJogador = 1;
-target.target1 = "PLAYER";
+//target.target1 = "PLAYER";
+target.setTargetItem("PLAYER", 0);
+target.setTxtAbility4Item(" do Jogador", 0);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1543,7 +1535,9 @@ target.target1 = "PLAYER";
 /* 1657 */           bJogador.setLocation(posicaoXJogador, posicaoYJogador);
 /* 1658 */           this.flagSegundaHab2 = 1;
 /* 1659 */           this.flagSegundaHabJogador = 1;
-target.target2 = "PLAYER";
+//target.target2 = "PLAYER";
+target.setTargetItem("PLAYER", 1);
+target.setTxtAbility4Item(" do Jogador", 1);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1560,7 +1554,9 @@ target.target2 = "PLAYER";
 /* 1674 */           bJogador.setLocation(posicaoXJogador, posicaoYJogador);
 /* 1675 */           this.flagTerceiraHab2 = 1;
 /* 1676 */           this.flagTerceiraHabJogador = 1;
-target.target3 = "PLAYER";
+//target.target3 = "PLAYER";
+target.setTargetItem("PLAYER", 2);
+target.setTxtAbility4Item(" do Jogador", 2);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1580,7 +1576,7 @@ mousePressed(evt);
     }//GEN-LAST:event_btnJogadorMouseDragged
 
     private void btnOponenteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOponenteMouseReleased
-Ability target = Ability.getInstance();
+Card target = Card.getInstance();
  
         Component bOponente = evt.getComponent();
 /*      */ 
@@ -1595,7 +1591,9 @@ Ability target = Ability.getInstance();
 /* 1702 */           bOponente.setLocation(posicaoXOponente, posicaoYOponente);
 /* 1703 */           this.flagPrimeiraHab2 = 1;
 /* 1704 */           this.flagPrimeiraHabOponente = 1;
-target.target1 = "OPPONENT";
+//target.target1 = "OPPONENT";
+target.setTargetItem("OPPONENT", 0);
+target.setTxtAbility4Item(" do Oponente", 0);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1614,7 +1612,9 @@ target.target1 = "OPPONENT";
 /* 1721 */           bOponente.setLocation(posicaoXOponente, posicaoYOponente);
 /* 1722 */           this.flagSegundaHab2 = 1;
 /* 1723 */           this.flagSegundaHabOponente = 1;
-target.target2 = "OPPONENT";
+//target.target2 = "OPPONENT";
+target.setTargetItem("OPPONENT", 1);
+target.setTxtAbility4Item(" do Oponente", 1);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1631,7 +1631,9 @@ target.target2 = "OPPONENT";
 /* 1738 */           bOponente.setLocation(posicaoXOponente, posicaoYOponente);
 /* 1739 */           this.flagTerceiraHab2 = 1;
 /* 1740 */           this.flagTerceiraHabOponente = 1;
-target.target3 = "OPPONENT";
+//target.target3 = "OPPONENT";
+target.setTargetItem("OPPONENT", 2);
+target.setTxtAbility4Item(" do Oponente", 2);
 /*      */         }
 /*      */       }
 /*      */       else {
@@ -1921,25 +1923,23 @@ this.lblDiminuir.setVisible(false);
     }//GEN-LAST:event_formWindowActivated
 
     private void btnSalvarHabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarHabMouseClicked
- DAOAbility daoAbility = new DAOAbility();
-/*     */ 
-/* 333 */         daoAbility.saveAbility();
+DAOCard doacard = DAOCard.getInstance();
+Card card = Card.getInstance();
+
+
+System.out.println(card.getNome());
+doacard.saveCard(card);
 /*     */       
 /*     */ 
-/* 337 */       JOptionPane.showMessageDialog(null, "Informações das Habilidades preenchidas com sucesso!");
-/*     */ 
-/* 339 */       CriaCarta criaCarta = new CriaCarta();
-/* 340 */       criaCarta.setVisible(true);
-/* 341 */       setVisible(false);
+/* 337 */       JOptionPane.showMessageDialog(null, "Informações da carta '" + card.getNome() + "' preenchidas com sucesso!");
+
+CriaCarta criaCarta = new CriaCarta();
+criaCarta.setVisible(true);
+this.setVisible(false);
     }//GEN-LAST:event_btnSalvarHabMouseClicked
 
     private void btnSalvarHabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarHabMouseEntered
- Ability target = Ability.getInstance();
-// Attr attr = Attr.getInstance();
-// Action action = Action.getInstance();
- String teste;
- teste = target.getAction1();
-System.out.println(teste);
+
 
     }//GEN-LAST:event_btnSalvarHabMouseEntered
 

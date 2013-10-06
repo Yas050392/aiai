@@ -126,7 +126,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAtaque">
       <Properties>
-        <Property name="text" type="java.lang.String" value="de Ataque"/>
+        <Property name="text" type="java.lang.String" value="de For&#xe7;a"/>
         <Property name="name" type="java.lang.String" value="btnAtaque" noResource="true"/>
       </Properties>
       <Events>
