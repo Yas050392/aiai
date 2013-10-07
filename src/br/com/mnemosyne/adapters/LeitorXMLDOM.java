@@ -87,14 +87,11 @@
 /*     */     }
 /*     */     catch (ParserConfigurationException e) {
 /* 108 */       System.out.println("O parser nao foi configurado corretamente.");
-/* 109 */       e.printStackTrace();
-/*     */     } catch (SAXException e) {
+     } catch (SAXException e) {
 /* 111 */       System.out.println("Problema ao fazer o parse do arquivo.");
-/* 112 */       e.printStackTrace();
-/*     */     } catch (IOException e) {
+     } catch (IOException e) {
 /* 114 */       System.out.println("O arquivo nao pode ser lido.");
-/* 115 */       e.printStackTrace();
-/*     */     }
+     }
 /*     */   }
 /*     */ }
 

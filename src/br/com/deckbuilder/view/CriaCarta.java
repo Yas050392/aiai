@@ -315,12 +315,20 @@ import br.com.deckbuilder.model.Card;
 /* 333 */      //   daoCardCreature.saveCardCreature();
                   
               Card card =  Card.getInstance();
-              
+              String ataque =txtAtaque.getText();
+               String defesa =txtDefesa.getText();
 /*  66 */     card.setType(this.tipoCartaS);
 /*  67 */     card.setNome(this.txtNomeCarta.getText());
 /*  68 */     card.setInformacoes(this.txtInformacoes.getText());
 /*  69 */     card.setCusto(this.custoS);
+
 /*  70 */     card.setForca(this.txtAtaque.getText());
+if(defesa == null){
+card.setDefesa("none");
+}
+if(ataque == null){
+card.setForca("none");
+}
 /*  71 */     card.setDefesa(this.txtDefesa.getText());
               card.setQtd(qtdCartas);
 
@@ -418,6 +426,8 @@ import br.com.deckbuilder.model.Card;
 
         Card card =  Card.getInstance();
             this.tipoCusto = this.cboCusto.getSelectedItem();
+            String ataque = null;
+            String defesa = null;
 
 /* 318 */     if (this.tipoCusto == "Nenhum") {
 /* 319 */       this.custoS = "none";
@@ -432,7 +442,14 @@ this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());
 /*  67 */     card.setNome(this.txtNomeCarta.getText());
 /*  68 */     card.setInformacoes(this.txtInformacoes.getText());
 /*  69 */     card.setCusto(this.custoS);
+
+if(ataque == null){
+card.setForca("none");
+}
 /*  70 */     card.setForca(this.txtAtaque.getText());
+if(defesa == null){
+card.setDefesa("none");
+}
 /*  71 */     card.setDefesa(this.txtDefesa.getText());
               card.setQtd(qtdCartas);
               

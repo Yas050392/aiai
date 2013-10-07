@@ -4,9 +4,15 @@
  */
 package br.com.deckbuilder.view;
 
+import br.com.deckbuilder.controller.DAOCard;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -91,6 +97,11 @@ public class TelaInicial extends javax.swing.JFrame {
         });
 
         botAlterarDeck.setText("Alterar");
+        botAlterarDeck.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botAlterarDeckMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,6 +204,15 @@ deckName = txtNomeDeck.getText();
         // TODO add your handling code here:
     }//GEN-LAST:event_botCriarDeckActionPerformed
 
+    private void botAlterarDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAlterarDeckMouseClicked
+DAOCard daoCard = new DAOCard();
+        try {
+            daoCard.loadCard(txtCaminhoModificar.getText());
+        } catch (ParserConfigurationException | SAXException | IOException ex) {
+            Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_botAlterarDeckMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -225,6 +245,7 @@ deckName = txtNomeDeck.getText();
             public void run() {
                 new TelaInicial().setVisible(true);
                  TelaInicial telaInicial = new TelaInicial();
+                
                  telaInicial.setVisible(true);
             }
         });

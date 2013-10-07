@@ -147,8 +147,6 @@ int baseX = -1;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        deckName = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -215,9 +213,6 @@ int baseX = -1;
         lblOutraCartaOponente = new javax.swing.JLabel();
         lblJogador = new javax.swing.JLabel();
         lblOponente = new javax.swing.JLabel();
-        lblTexto1 = new javax.swing.JLabel();
-        lblTexto2 = new javax.swing.JLabel();
-        lblTexto3 = new javax.swing.JLabel();
         btnSalvarHab = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -228,17 +223,11 @@ int baseX = -1;
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Criando o Deck");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, -1));
-
-        deckName.setText("deck");
-        getContentPane().add(deckName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
-
         jLabel2.setText("Habilidades da carta");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 140, -1));
 
         jLabel3.setText("carta");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 30, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 60, -1));
 
         jLabel4.setText("Você pode escolher até 3 habilidades para cada carta.");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
@@ -767,15 +756,6 @@ int baseX = -1;
         primeiraHab.add(lblOponente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         getContentPane().add(primeiraHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 440, 30));
-
-        lblTexto1.setText("jLabel12");
-        getContentPane().add(lblTexto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
-
-        lblTexto2.setText("jLabel12");
-        getContentPane().add(lblTexto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
-
-        lblTexto3.setText("jLabel12");
-        getContentPane().add(lblTexto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
         btnSalvarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/disket.jpg"))); // NOI18N
         btnSalvarHab.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1863,7 +1843,7 @@ this.lblOponente.setVisible(false);
     }//GEN-LAST:event_lblOponenteMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-this.lblDiminuir.setVisible(false);
+               this.lblDiminuir.setVisible(false);
 /*  930 */     this.lblDiminuir1.setVisible(false);
 /*  931 */     this.lblDiminuir2.setVisible(false);
 /*      */ 
@@ -1916,21 +1896,18 @@ this.lblDiminuir.setVisible(false);
 /*  979 */     this.lblOponente.setVisible(false);
 /*  980 */     this.lblOponente1.setVisible(false);
 /*  981 */     this.lblOponente2.setVisible(false);
-               
-                lblTexto1.setVisible(false);
-                lblTexto2.setVisible(false);
-                lblTexto3.setVisible(false);
+
+Card card = Card.getInstance();
+jLabel3.setText(card.getNome());
     }//GEN-LAST:event_formWindowActivated
 
     private void btnSalvarHabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarHabMouseClicked
-DAOCard doacard = DAOCard.getInstance();
+DAOCard daoCard = DAOCard.getInstance();
 Card card = Card.getInstance();
 
+daoCard.saveCard(card);
+//daoCard.refreshCard();
 
-System.out.println(card.getNome());
-doacard.saveCard(card);
-/*     */       
-/*     */ 
 /* 337 */       JOptionPane.showMessageDialog(null, "Informações da carta '" + card.getNome() + "' preenchidas com sucesso!");
 
 CriaCarta criaCarta = new CriaCarta();
@@ -1984,8 +1961,6 @@ this.setVisible(false);
     private javax.swing.JButton btnOutraCartaOponente;
     private javax.swing.JButton btnPV;
     private javax.swing.JButton btnSalvarHab;
-    private javax.swing.JLabel deckName;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -2026,9 +2001,6 @@ this.setVisible(false);
     private javax.swing.JLabel lblPV;
     private javax.swing.JLabel lblPV1;
     private javax.swing.JLabel lblPV2;
-    private javax.swing.JLabel lblTexto1;
-    private javax.swing.JLabel lblTexto2;
-    private javax.swing.JLabel lblTexto3;
     private javax.swing.JLabel lblValor;
     private javax.swing.JLabel lblValor1;
     private javax.swing.JLabel lblValor2;

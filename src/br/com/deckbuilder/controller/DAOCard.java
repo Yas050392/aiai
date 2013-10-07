@@ -15,18 +15,22 @@ import br.com.deckbuilder.model.Card;
 /*     */ import javax.xml.transform.TransformerFactory;
 /*     */ import javax.xml.transform.dom.DOMSource;
 /*     */ import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.Attr;
 /*     */ import org.w3c.dom.Document;
 /*     */ import org.w3c.dom.Element;
 /*     */ import org.w3c.dom.Node;
 /*     */ import org.w3c.dom.NodeList;
 /*     */ import org.w3c.dom.Text;
 /*     */ import org.xml.sax.SAXException;
+           // import org.jdom.Element;
 
 public class DAOCard {
             public DocumentBuilderFactory dbf;
 /*     */   public DocumentBuilder db;
 /*     */   public Document doc;
 private static DAOCard singleton;
+
+public int flagCard = 0;
 
 public static DAOCard getInstance(){
             if(DAOCard.singleton == null){
@@ -74,10 +78,12 @@ public static DAOCard getInstance(){
 /*     */ 
 /*     */   public Element criaElementoAPartirCartaCriatura(Card card)
 /*     */   {
+    
+    
      Card card1 = Card.getInstance();
 /*  84 */    // CriaDeck createDeck1 = CriaDeck.getInstance();
 /*     */ //Card createDeck1 = new Card();
-/*  87 */     Element element = this.doc.createElement("card");
+/*  87 */     Element element = doc.createElement("card");
 
 
 
@@ -108,28 +114,36 @@ public static DAOCard getInstance(){
              // raiz.getElementsByTagName("character");
              
              // elemento.setAttribute("type", "testinho");
-             
+
               
     Element txtAbility = criaElementoGenerico("ability", card1.getTxtAbility1Item(i) + card1.getTxtAbility2Item(i) + card1.getTxtAbility3Item(i) + card1.getTxtAbility4Item(i) );
      Element target = criaElementoGenerico("target", card1.getTargetItem(i));
     Element oper = criaElementoGenerico("oper", card1.getOperItem(i));
      Element no = criaElementoGenerico("no", card1.getNoItem(i));
+     Element event = criaElementoGenerico("event", "");
 
+     
     element.appendChild(txtAbility);
      element.appendChild(target);
      element.appendChild(oper);
     element.appendChild(no);
-
+       element.appendChild(event);
+       
+       event.setAttribute("type", card1.getEventItem(i));
+      
           }
 
 /* 106 */     return element;
+
 /*     */   }
 /*     */ 
 /*     */   public void saveCard(Card card)
 /*     */   {
-/* 115 */     String arquivoLeitura = "modelo.xml";
-     String arquivoSaida = "createDeck1.xml";
-
+    String arquivoLeitura="createDeck.xml";
+    
+   if(flagCard == 1){
+/* 115 */      arquivoLeitura = "createDeck1.xml";
+   }
 /* 119 */     this.dbf = DocumentBuilderFactory.newInstance();
 /*     */     try
 /*     */     {
@@ -154,6 +168,7 @@ public static DAOCard getInstance(){
 /* 145 */       Element novaCarta = criaElementoAPartirCartaCriatura(card);
 /*     */ 
 /* 147 */       raiz.appendChild(novaCarta);
+            flagCard = 1;
 /*     */     }
  // try {
 //commitCards();
@@ -167,7 +182,7 @@ public static DAOCard getInstance(){
 
        public void commitCards(){
            
-            String arquivoLeitura = "modelo.xml";
+            String arquivoLeitura = "createDeck.xml";
             String arquivoSaida = "createDeck1.xml";
 /*     */ 
 
@@ -178,5 +193,69 @@ public static DAOCard getInstance(){
 /* 152 */       Logger.getLogger(CriaCarta.class.getName()).log(Level.SEVERE, null, ex);
 /*     */     }
 }
+       
+       /*     */   public void refreshCard()
+/*     */   {
+/* 115 */          Card card1 = new Card();
+/*     */   }
+       
+        public void loadCard(String arquivoXML) throws ParserConfigurationException, SAXException, IOException
+/*     */   {
+            
+/*  34 */     DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+/*  35 */     DocumentBuilder db = dbf.newDocumentBuilder();
+/*  36 */     Document doc = db.parse(arquivoXML);
+/*     */ 
+/*  39 */     Element raiz = doc.getDocumentElement();
+/*  40 */     System.out.println("O elemento raiz eh: " + raiz.getNodeName());
+/*     */ 
+/*  43 */     NodeList listaCharacterCards = raiz.getElementsByTagName("card");
+/*     */ 
+/*  46 */     for (int i = 0; i < listaCharacterCards.getLength(); i++) {
+/*  47 */       System.out.println();
+/*     */ 
+/*  50 */       Element characterCard = (Element)listaCharacterCards.item(i);
+/*     */ 
+/*  52 */      // Attr type = characterCard.getAttributeNode("type");
+/*  53 */     //  System.out.println("Tipo da Carta: " + id.getNodeValue());
+/*     */ 
+/*  55 */       NodeList listaName = characterCard.getElementsByTagName("name");
+/*  56 */       Node name = listaName.item(0).getFirstChild();
+/*  57 */       System.out.println("Nome da carta: " + name.getNodeValue());
+/*     */ 
+/*  59 */       NodeList listaInformation = characterCard.getElementsByTagName("information");
+/*  60 */       Node information = listaInformation.item(0).getFirstChild();
+/*  61 */       System.out.println("Informacoes: " + information.getNodeValue());
+/*     */ 
+/*  63 */       NodeList listaCost = characterCard.getElementsByTagName("cost");
+/*  64 */       Node cost = listaCost.item(0).getFirstChild();
+/*  65 */       System.out.println("Custo: " + cost.getNodeValue());
+/*     */ 
+/*  67 */       NodeList listaPower = characterCard.getElementsByTagName("power");
+/*  68 */       Node power = listaPower.item(0).getFirstChild();
+/*  69 */       System.out.println("Forca: " + power.getNodeValue());
+/*     */ 
+/*  71 */       NodeList listaDefense = characterCard.getElementsByTagName("defense");
+/*  72 */       Node defense = listaDefense.item(0).getFirstChild();
+/*  73 */       System.out.println("Defesa: " + defense.getNodeValue());
+/*     */ 
+/*  75 */       NodeList listaAbility = characterCard.getElementsByTagName("ability");
+/*  76 */       Node ability = listaAbility.item(0).getFirstChild();
+/*  77 */       System.out.println("Habilidade: " + ability.getNodeValue());
+/*     */ 
+/*     */ 
+/*  83 */       NodeList listaOper = characterCard.getElementsByTagName("oper");
+/*  84 */       Node oper = listaOper.item(0).getFirstChild();
+/*  85 */       System.out.println("Operacao da habilidade: " + oper.getNodeValue());
+/*     */ 
+/*  87 */       NodeList listaNo = characterCard.getElementsByTagName("no");
+/*  88 */       Node no = listaNo.item(0).getFirstChild();
+/*  89 */       System.out.println("Valor a ser operado: " + no.getNodeValue());
+
+/*     */     }
+        
+        
+            }
+        
 }
 
