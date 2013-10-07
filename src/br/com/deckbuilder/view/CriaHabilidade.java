@@ -790,7 +790,7 @@ int baseX = -1;
 /*  877 */           this.flagPrimeiraHab = 1;
 /*  878 */           this.flagPrimeiraHabDiminuir = 1;
                       action.setOperItem("DECREMENT",0);
-                      action.setTxtAbility1Item("Diminui", 0);
+                      action.setTxtAbility1Item("Diminui ", 0);
                     
 /*      */         }
 /*      */       }
@@ -813,7 +813,7 @@ int baseX = -1;
 /*  898 */           this.flagSegundaHabDiminuir = 1;
 //action.action2 = "DECREMENT";
 action.setOperItem("DECREMENT",1);
-                      action.setTxtAbility1Item("Diminui", 1);
+                      action.setTxtAbility1Item("Diminui ", 1);
 /*      */         }
 /*      */       }
 /*      */       else {

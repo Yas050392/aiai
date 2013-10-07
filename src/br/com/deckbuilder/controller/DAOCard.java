@@ -5,6 +5,7 @@ import br.com.deckbuilder.model.Card;
           import br.com.deckbuilder.view.CriaCarta;
 /*     */ import java.io.FileOutputStream;
 /*     */ import java.io.IOException;
+import java.util.Vector;
 /*     */ import java.util.logging.Level;
 /*     */ import java.util.logging.Logger;
 /*     */ import javax.xml.parsers.DocumentBuilder;
@@ -216,8 +217,8 @@ public static DAOCard getInstance(){
 /*     */ 
 /*  50 */       Element characterCard = (Element)listaCharacterCards.item(i);
 /*     */ 
-/*  52 */      // Attr type = characterCard.getAttributeNode("type");
-/*  53 */     //  System.out.println("Tipo da Carta: " + id.getNodeValue());
+/*  52 */       Attr type = characterCard.getAttributeNode("type");
+/*  53 */       System.out.println("Tipo da Carta: " + type.getNodeValue());
 /*     */ 
 /*  55 */       NodeList listaName = characterCard.getElementsByTagName("name");
 /*  56 */       Node name = listaName.item(0).getFirstChild();
@@ -241,21 +242,42 @@ public static DAOCard getInstance(){
 /*     */ 
 /*  75 */       NodeList listaAbility = characterCard.getElementsByTagName("ability");
 /*  76 */       Node ability = listaAbility.item(0).getFirstChild();
-/*  77 */       System.out.println("Habilidade: " + ability.getNodeValue());
+/*  77 */       System.out.println("Habilidade 1: " + ability.getNodeValue());
 /*     */ 
 /*     */ 
 /*  83 */       NodeList listaOper = characterCard.getElementsByTagName("oper");
 /*  84 */       Node oper = listaOper.item(0).getFirstChild();
-/*  85 */       System.out.println("Operacao da habilidade: " + oper.getNodeValue());
+/*  85 */       System.out.println("Operacao da habilidade 1: " + oper.getNodeValue());
 /*     */ 
 /*  87 */       NodeList listaNo = characterCard.getElementsByTagName("no");
 /*  88 */       Node no = listaNo.item(0).getFirstChild();
-/*  89 */       System.out.println("Valor a ser operado: " + no.getNodeValue());
+/*  89 */       System.out.println("Valor a ser operado da habilidade 1: " + no.getNodeValue());
 
+                NodeList listaAbility1 = characterCard.getElementsByTagName("ability");
+/*  76 */       Node ability1 = listaAbility1.item(1).getFirstChild();
+/*  77 */       System.out.println("Habilidade 2: " + ability1.getNodeValue());
+
+/*  83 */       NodeList listaOper1 = characterCard.getElementsByTagName("oper");
+/*  84 */       Node oper1 = listaOper1.item(1).getFirstChild();
+/*  85 */       System.out.println("Operacao da habilidade 2: " + oper1.getNodeValue());
+/*     */ 
+/*  87 */       NodeList listaNo1 = characterCard.getElementsByTagName("no");
+/*  88 */       Node no1 = listaNo1.item(1).getFirstChild();
+/*  89 */       System.out.println("Valor a ser operado da habilidade 2: " + no1.getNodeValue());
+
+                NodeList listaAbility2 = characterCard.getElementsByTagName("ability");
+/*  76 */       Node ability2 = listaAbility2.item(2).getFirstChild();
+/*  77 */       System.out.println("Habilidade 3: " + ability2.getNodeValue());
+
+/*  83 */       NodeList listaOper2 = characterCard.getElementsByTagName("oper");
+/*  84 */       Node oper2 = listaOper2.item(2).getFirstChild();
+/*  85 */       System.out.println("Operacao da habilidade 3: " + oper2.getNodeValue());
+/*     */ 
+/*  87 */       NodeList listaNo2 = characterCard.getElementsByTagName("no");
+/*  88 */       Node no2 = listaNo2.item(2).getFirstChild();
+/*  89 */       System.out.println("Valor a ser operado da habilidade 3: " + no2.getNodeValue());
 /*     */     }
         
-        
-            }
-        
+}    
 }
 
