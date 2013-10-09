@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
@@ -24,6 +25,7 @@ import org.xml.sax.SAXException;
 public class TelaInicial extends javax.swing.JFrame {
 
     public String deckName;
+    public int flagCaminho = 0;
 
     
     public TelaInicial() {
@@ -54,9 +56,11 @@ public class TelaInicial extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 153, 153));
         setForeground(new java.awt.Color(255, 0, 255));
         setName(""); // NOI18N
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Bem vindo ao Deck Builder Mnemosyne");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 21, -1, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/search.jpg"))); // NOI18N
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -69,20 +73,37 @@ public class TelaInicial extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 111, 50, 50));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("É muito fácil começar!");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 61, -1, -1));
 
         jLabel3.setText("Se você quer modificar seu Deck encontre-o aqui:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 101, -1, -1));
 
         txtCaminhoModificar.setEditable(false);
         txtCaminhoModificar.setText("\n");
         txtCaminhoModificar.setEnabled(false);
         txtCaminhoModificar.setName("teste"); // NOI18N
+        txtCaminhoModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCaminhoModificarActionPerformed(evt);
+            }
+        });
+        txtCaminhoModificar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txtCaminhoModificarPropertyChange(evt);
+            }
+        });
+        getContentPane().add(txtCaminhoModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 121, 460, -1));
 
         jLabel4.setText("Ou crie um novo Deck aqui:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 211, -1, -1));
 
         jLabel5.setText("Título do Deck:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 231, -1, -1));
+        getContentPane().add(txtNomeDeck, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 251, 268, -1));
 
         botCriarDeck.setText("Criar!");
         botCriarDeck.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -95,6 +116,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 botCriarDeckActionPerformed(evt);
             }
         });
+        getContentPane().add(botCriarDeck, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 251, -1, 20));
 
         botAlterarDeck.setText("Alterar");
         botAlterarDeck.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -102,64 +124,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 botAlterarDeckMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 578, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 24, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jLabel2))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(txtCaminhoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(20, 20, 20)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(botAlterarDeck)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel5)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(txtNomeDeck, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(22, 22, 22)
-                            .addComponent(botCriarDeck)))
-                    .addGap(0, 24, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 291, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 21, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(23, 23, 23)
-                    .addComponent(jLabel2)
-                    .addGap(23, 23, 23)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(6, 6, 6)
-                            .addComponent(txtCaminhoModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(botAlterarDeck)
-                    .addGap(27, 27, 27)
-                    .addComponent(jLabel4)
-                    .addGap(6, 6, 6)
-                    .addComponent(jLabel5)
-                    .addGap(6, 6, 6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtNomeDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(botCriarDeck, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 20, Short.MAX_VALUE)))
-        );
+        getContentPane().add(botAlterarDeck, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 161, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -205,13 +170,37 @@ deckName = txtNomeDeck.getText();
     }//GEN-LAST:event_botCriarDeckActionPerformed
 
     private void botAlterarDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAlterarDeckMouseClicked
-DAOCard daoCard = new DAOCard();
+if(txtCaminhoModificar.getText() != null){
+        DAOCard daoCard = new DAOCard();
         try {
             daoCard.loadCard(txtCaminhoModificar.getText());
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }}
+else{
+ JOptionPane.showMessageDialog(null,"Você deve localizar seu Deck para altera-lo!");
+    
+}
+
+
+//CriaCarta alteraCarta = new CriaCarta();
+//alteraCarta.setVisible(true);
+this.setVisible(false);
     }//GEN-LAST:event_botAlterarDeckMouseClicked
+
+    private void txtCaminhoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCaminhoModificarActionPerformed
+
+    }//GEN-LAST:event_txtCaminhoModificarActionPerformed
+
+    private void txtCaminhoModificarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtCaminhoModificarPropertyChange
+
+if(flagCaminho == 0){
+flagCaminho = 1;
+}
+else{
+flagCaminho = 0;
+}
+    }//GEN-LAST:event_txtCaminhoModificarPropertyChange
 
     /**
      * @param args the command line arguments

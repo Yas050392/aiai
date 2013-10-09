@@ -2,13 +2,17 @@
 /*     */ 
 import br.com.deckbuilder.controller.DAOCard;
 import br.com.deckbuilder.model.Card;
+import java.awt.Color;
 /*     */ import java.awt.EventQueue;
 /*     */ import java.awt.event.ActionEvent;
 /*     */ import java.awt.event.FocusEvent;
 /*     */ import java.awt.event.ItemEvent;
 /*     */ import java.awt.event.MouseEvent;
+import javax.swing.JButton;
 /*     */ import javax.swing.JFrame;
 /*     */ import javax.swing.JOptionPane;
+
+
 /*     */ 
 /*     */ public class CriaCarta extends JFrame
 /*     */ {
@@ -20,7 +24,54 @@ import br.com.deckbuilder.model.Card;
 /*     */   public int i;
 /*     */   public int qtdCartas;
 
-/*     */ 
+ public JButton[] listaStr = new JButton[18];
+
+public void criaVetor() {
+        listaStr[0] = btnCard1;
+        listaStr[1] = btnCard2;
+        listaStr[2] = btnCard3;
+        listaStr[3] = btnCard4;
+        listaStr[4] = btnCard5;
+        listaStr[5] = btnCard6;
+        listaStr[6] = btnCard7;
+        listaStr[7] = btnCard8;
+        listaStr[8] = btnCard9;
+        listaStr[9] = btnCard10;
+        listaStr[10] = btnCard11;
+        listaStr[11] = btnCard12;
+        listaStr[12] = btnCard13;
+        listaStr[13] = btnCard14;
+        listaStr[14] = btnCard15;
+        listaStr[15] = btnCard16;
+        listaStr[16] = btnCard17;
+        listaStr[17] = btnCard18;
+        
+        
+    }
+
+
+    public void escolheCarta(String panelId) {
+        int flagCardSelected = 0;
+       
+        
+     if(flagCardSelected == 0){
+       for (int iCard=0; iCard < listaStr.length; iCard++)
+        {
+            if (panelId.equals(listaStr[iCard].getName()))
+            {
+                listaStr[iCard].setBackground(Color.yellow);
+                Card card = Card.getInstance();
+                card.setImage(panelId);
+                System.out.println(card.getImage());
+                //flagCardSelected = 1;
+            }
+        }
+     }
+     else {
+JOptionPane.showMessageDialog(null, "Você só pode escolher uma imagem por carta!");
+     }
+    }
+       
 /*     */   public CriaCarta()
 /*     */   {
 /*  36 */     initComponents();
@@ -37,6 +88,8 @@ import br.com.deckbuilder.model.Card;
 /*  47 */     this.cboCusto.setVisible(false);
 /*  48 */     this.txtTipoCusto.setVisible(false);
 /*  49 */     this.txtQtdCusto.setVisible(false);
+
+
 
 /*     */   }
 /*     */
@@ -60,6 +113,24 @@ import br.com.deckbuilder.model.Card;
         cboTipoCarta = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         PanImagem = new javax.swing.JPanel();
+        btnCard1 = new javax.swing.JButton();
+        btnCard2 = new javax.swing.JButton();
+        btnCard3 = new javax.swing.JButton();
+        btnCard4 = new javax.swing.JButton();
+        btnCard5 = new javax.swing.JButton();
+        btnCard6 = new javax.swing.JButton();
+        btnCard7 = new javax.swing.JButton();
+        btnCard8 = new javax.swing.JButton();
+        btnCard9 = new javax.swing.JButton();
+        btnCard10 = new javax.swing.JButton();
+        btnCard11 = new javax.swing.JButton();
+        btnCard12 = new javax.swing.JButton();
+        btnCard13 = new javax.swing.JButton();
+        btnCard14 = new javax.swing.JButton();
+        btnCard15 = new javax.swing.JButton();
+        btnCard16 = new javax.swing.JButton();
+        btnCard17 = new javax.swing.JButton();
+        btnCard18 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtNomeCarta = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -76,11 +147,15 @@ import br.com.deckbuilder.model.Card;
         jLabel15 = new javax.swing.JLabel();
         txtAtaque = new javax.swing.JFormattedTextField();
         txtDefesa = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
         btnFinalizarDeck = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setName("CreateDeckForm"); // NOI18N
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -127,8 +202,179 @@ import br.com.deckbuilder.model.Card;
         getContentPane().add(cboTipoCarta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jLabel7.setText("Imagem:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, -1));
-        getContentPane().add(PanImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 400, 170));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
+
+        PanImagem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PanImagem.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnCard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/gigante_de_pedra.jpg"))); // NOI18N
+        btnCard1.setName("btnCard1"); // NOI18N
+        btnCard1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 110));
+
+        btnCard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/bola_de_fogo.jpg"))); // NOI18N
+        btnCard2.setName("btnCard2"); // NOI18N
+        btnCard2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 80, 110));
+
+        btnCard3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/gilfor.jpg"))); // NOI18N
+        btnCard3.setName("btnCard3"); // NOI18N
+        btnCard3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        btnCard3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCard3ActionPerformed(evt);
+            }
+        });
+        PanImagem.add(btnCard3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 80, 110));
+
+        btnCard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/bomba_atomica.jpg"))); // NOI18N
+        btnCard4.setName("btnCard4"); // NOI18N
+        btnCard4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 80, 110));
+
+        btnCard5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/maldicao.jpg"))); // NOI18N
+        btnCard5.setName("btnCard5"); // NOI18N
+        btnCard5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 80, 110));
+
+        btnCard6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/buraco.jpg"))); // NOI18N
+        btnCard6.setName("btnCard6"); // NOI18N
+        btnCard6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 80, 110));
+
+        btnCard7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/homem_aguia.jpg"))); // NOI18N
+        btnCard7.setName("btnCard7"); // NOI18N
+        btnCard7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 80, 110));
+
+        btnCard8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/cyborg_assassino.jpg"))); // NOI18N
+        btnCard8.setName("btnCard8"); // NOI18N
+        btnCard8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 80, 110));
+
+        btnCard9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/planta_lunatica.jpg"))); // NOI18N
+        btnCard9.setName("btnCard9"); // NOI18N
+        btnCard9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 80, 110));
+
+        btnCard10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fantasma.jpg"))); // NOI18N
+        btnCard10.setName("btnCard10"); // NOI18N
+        btnCard10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 80, 110));
+
+        btnCard11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/sapo_macabro.jpg"))); // NOI18N
+        btnCard11.setName("btnCard11"); // NOI18N
+        btnCard11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 80, 110));
+
+        btnCard12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/flighter.jpg"))); // NOI18N
+        btnCard12.setName("btnCard12"); // NOI18N
+        btnCard12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 80, 110));
+
+        btnCard13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/veneno.jpg"))); // NOI18N
+        btnCard13.setName("btnCard13"); // NOI18N
+        btnCard13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 80, 110));
+
+        btnCard14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/titan.jpg"))); // NOI18N
+        btnCard14.setName("btnCard14"); // NOI18N
+        btnCard14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 80, 110));
+
+        btnCard15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/radiacao.jpg"))); // NOI18N
+        btnCard15.setName("btnCard15"); // NOI18N
+        btnCard15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 80, 110));
+
+        btnCard16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/explosivo 1.jpg"))); // NOI18N
+        btnCard16.setName("btnCard16"); // NOI18N
+        btnCard16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 80, 110));
+
+        btnCard17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/el_tigre.jpg"))); // NOI18N
+        btnCard17.setName("btnCard17"); // NOI18N
+        btnCard17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 80, 110));
+
+        btnCard18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/anula_magia.jpg"))); // NOI18N
+        btnCard18.setName("btnCard18"); // NOI18N
+        btnCard18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        PanImagem.add(btnCard18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 80, 110));
+
+        getContentPane().add(PanImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 500, 350));
 
         jLabel8.setText("Nome:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
@@ -183,19 +429,6 @@ import br.com.deckbuilder.model.Card;
         txtDefesa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         getContentPane().add(txtDefesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 40, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/disket.jpg"))); // NOI18N
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 600, 60, 60));
-
         btnFinalizarDeck.setText("Finalizar Deck");
         btnFinalizarDeck.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -215,7 +448,7 @@ import br.com.deckbuilder.model.Card;
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 630, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 630, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -288,127 +521,7 @@ import br.com.deckbuilder.model.Card;
 /*     */   private void cboCustoActionPerformed(ActionEvent evt){//GEN-FIRST:event_cboCustoActionPerformed
 
 /*     */   }//GEN-LAST:event_cboCustoActionPerformed
-/*     */ 
-/*     */   private void jButton1MouseClicked(MouseEvent evt){//GEN-FIRST:event_jButton1MouseClicked
 
-    
-    
-    
-    /* 316 */     this.tipoCusto = this.cboCusto.getSelectedItem();
-/*     */ 
-/* 318 */     if (this.tipoCusto == "Nenhum") {
-/* 319 */       this.custoS = "none";
-/*     */     }
-/*     */     else {
-/* 322 */       this.custoS = this.txtTipoCusto.getText();
-/*     */     }
-/*     */ 
-/* 326 */     if (this.tipoCarta == "Criatura")
-/*     */     {
-/* 328 */       this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());
-/*     */ 
-/* 330 */       for (this.i = 0; this.i <= this.qtdCartas; this.i += 1) {
-                  //criaCartaCriatura();//setter
-                  
-/* 331 */      //   DAOCardCreature daoCardCreature = new DAOCardCreature();
-/*     */ 
-/* 333 */      //   daoCardCreature.saveCardCreature();
-                  
-              Card card =  Card.getInstance();
-              String ataque =txtAtaque.getText();
-               String defesa =txtDefesa.getText();
-/*  66 */     card.setType(this.tipoCartaS);
-/*  67 */     card.setNome(this.txtNomeCarta.getText());
-/*  68 */     card.setInformacoes(this.txtInformacoes.getText());
-/*  69 */     card.setCusto(this.custoS);
-
-/*  70 */     card.setForca(this.txtAtaque.getText());
-if(defesa == null){
-card.setDefesa("none");
-}
-if(ataque == null){
-card.setForca("none");
-}
-/*  71 */     card.setDefesa(this.txtDefesa.getText());
-              card.setQtd(qtdCartas);
-
-                  
-                  DAOCard daoCard = new DAOCard();
-                  daoCard.saveCard(card);
-/*     */       }
-/*     */ 
-/* 337 */       JOptionPane.showMessageDialog(null, "Informações da Carta Criatura '" + this.txtNomeCarta.getText() + "' preenchidas com sucesso!");
-/*     */ 
-/* 339 */       CriaCarta criaHabilidade = new CriaCarta();
-/* 340 */       criaHabilidade.setVisible(true);
-/* 341 */       setVisible(false);
-/*     */     }
-/*     */ 
-/* 345 */     if (this.tipoCarta == "Mágica")
-/*     */     {
-/* 347 */       this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());
-/*     */ 
-/* 349 */       for (this.i = 0; this.i <= this.qtdCartas; this.i += 1) {
-/* 350 */     //    DAOCardMagic daoCardMagic = new DAOCardMagic();
-/*     */ 
-/* 352 */     //    daoCardMagic.saveCardMagic();
-    
-              Card card =  Card.getInstance();
-              
-/*  66 */     card.setType(this.tipoCartaS);
-/*  67 */     card.setNome(this.txtNomeCarta.getText());
-/*  68 */     card.setInformacoes(this.txtInformacoes.getText());
-/*  69 */     card.setCusto(this.custoS);
-/*  70 */     card.setForca("none");
-/*  71 */     card.setDefesa("none");
-
-                  
-                  DAOCard daoCard = new DAOCard();
-                  daoCard.saveCard(card);
-/*     */       }
-/*     */ 
-/* 356 */       JOptionPane.showMessageDialog(null, "Informações da Carta Mágica '" + this.txtNomeCarta.getText() + "' preenchidas com sucesso!");
-/*     */ 
-/* 358 */       CriaHabilidade criaHabilidade = new CriaHabilidade();
-/* 340 */       criaHabilidade.setVisible(true);
-/* 341 */       setVisible(false);
-/*     */     }
-/*     */ 
-/* 365 */     if (this.tipoCarta == "Recurso")
-/*     */     {
-/* 367 */       this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());
-/*     */ 
-/* 369 */       for (this.i = 0; this.i <= this.qtdCartas; this.i += 1) {
-/* 370 */       //  DAOCardResource daoCardResource = new DAOCardResource();
-/*     */ 
-/* 372 */       //  daoCardResource.saveCardResource();
-              Card card =  Card.getInstance();
-              
-/*  66 */     card.setType(this.tipoCartaS);
-/*  67 */     card.setNome(this.txtNomeCarta.getText());
-/*  68 */     card.setInformacoes(this.txtInformacoes.getText());
-/*  69 */     card.setCusto(this.custoS);
-/*  70 */     card.setForca("none");
-/*  71 */     card.setDefesa("none");
-
-                  
-                  DAOCard daoCard = new DAOCard();
-                  
-                  daoCard.saveCard(card);
-    
-/*     */       }
-/*     */ 
-/* 376 */       JOptionPane.showMessageDialog(null, "Informações da Carta Recurso '" + this.txtNomeCarta.getText() + "' preenchidas com sucesso!");
-/*     */ 
-/* 378 */       CriaHabilidade criaHabilidade = new CriaHabilidade();
-/* 340 */       criaHabilidade.setVisible(true);
-/* 341 */       setVisible(false);
-/*     */     }
-/*     */   }//GEN-LAST:event_jButton1MouseClicked
-/*     */ 
-/*     */   private void jButton1ActionPerformed(ActionEvent evt){//GEN-FIRST:event_jButton1ActionPerformed
-
-/*     */   }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnFinalizarDeckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinalizarDeckMouseClicked
                   DAOCard daoCard =  DAOCard.getInstance();
@@ -458,6 +571,19 @@ card.setDefesa("none");
 this.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
 
+    private void changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeBorder
+       // System.out.println(evt.getComponent().getName());
+        this.escolheCarta(evt.getComponent().getName());
+    }//GEN-LAST:event_changeBorder
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+     criaVetor();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void btnCard3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCard3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCard3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -490,11 +616,28 @@ this.setVisible(false);
 /*     */   }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanImagem;
+    private javax.swing.JButton btnCard1;
+    private javax.swing.JButton btnCard10;
+    private javax.swing.JButton btnCard11;
+    private javax.swing.JButton btnCard12;
+    private javax.swing.JButton btnCard13;
+    private javax.swing.JButton btnCard14;
+    private javax.swing.JButton btnCard15;
+    private javax.swing.JButton btnCard16;
+    private javax.swing.JButton btnCard17;
+    private javax.swing.JButton btnCard18;
+    private javax.swing.JButton btnCard2;
+    private javax.swing.JButton btnCard3;
+    private javax.swing.JButton btnCard4;
+    private javax.swing.JButton btnCard5;
+    private javax.swing.JButton btnCard6;
+    private javax.swing.JButton btnCard7;
+    private javax.swing.JButton btnCard8;
+    private javax.swing.JButton btnCard9;
     private javax.swing.JButton btnFinalizarDeck;
     private javax.swing.JComboBox cboCusto;
     private javax.swing.JComboBox cboTipoCarta;
     private javax.swing.JLabel deckName;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

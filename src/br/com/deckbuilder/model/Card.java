@@ -10,6 +10,7 @@ public class Card {
 /*     */   private String type;
 /*     */   private String power;
 /*     */   private String defense;
+            private String image;
             private String[] txtAbility1 = new String[3];
             private String[] txtAbility2 = new String[3];
             private String[] txtAbility3 = new String[3];
@@ -20,6 +21,8 @@ public class Card {
             private String[] no = new String[3];
             
             private int qtd;
+            
+            
             private static Card singleton;
   
   public static Card getInstance()
@@ -171,4 +174,13 @@ public class Card {
     public String getNoItem(int index) {  
         return no[index];  
     } 
+    
+    /*     */   public String getImage()
+/*     */   {
+/*  21 */     return this.image;
+/*     */   }
+/*     */ 
+/*     */   public void setImage(String image) {
+/*  25 */     this.image = image;
+/*     */   }
 }
