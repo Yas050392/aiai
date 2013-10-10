@@ -3,10 +3,16 @@
  * and open the template in the editor.
  */
 package br.com.deckbuilder.view;
-
+import br.com.deckbuilder.controller.MinhaCartinha;
+import br.com.deckbuilder.controller.UtilsCarta;
 import br.com.deckbuilder.model.Card;
 import java.awt.Color;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -26,6 +32,7 @@ public void criaVetor() {
         listaStr[5] = btnCard6;
        
     }
+
 private static AlteraCarta singleton;
 
 
@@ -37,24 +44,6 @@ public static AlteraCarta getInstance(){
         return AlteraCarta.singleton;
     }
 
-    public void escolheCarta(String panelId) {
-        int flagCardSelected = 0;
-       
-        
-     if(flagCardSelected == 0){
-       for (int iCard=0; iCard < listaStr.length; iCard++)
-        {
-            if (panelId.equals(listaStr[iCard].getName()))
-            {
-                listaStr[iCard].setBackground(Color.yellow);
-                Card card = Card.getInstance();
-                card.setImage(panelId);
-                System.out.println(card.getImage());
-                //flagCardSelected = 1;
-            }
-        }
-     }
-    }
     
     public AlteraCarta() {
         initComponents();
@@ -74,41 +63,58 @@ public static AlteraCarta getInstance(){
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnCard1 = new javax.swing.JButton();
-        btnCard7 = new javax.swing.JButton();
-        btnCard13 = new javax.swing.JButton();
         btnCard2 = new javax.swing.JButton();
-        btnCard8 = new javax.swing.JButton();
-        btnCard14 = new javax.swing.JButton();
-        btnCard15 = new javax.swing.JButton();
-        btnCard9 = new javax.swing.JButton();
         btnCard3 = new javax.swing.JButton();
         btnCard4 = new javax.swing.JButton();
-        btnCard10 = new javax.swing.JButton();
-        btnCard16 = new javax.swing.JButton();
-        btnCard17 = new javax.swing.JButton();
-        btnCard11 = new javax.swing.JButton();
         btnCard5 = new javax.swing.JButton();
         btnCard6 = new javax.swing.JButton();
+        btnCard7 = new javax.swing.JButton();
+        btnCard8 = new javax.swing.JButton();
+        btnCard9 = new javax.swing.JButton();
+        btnCard10 = new javax.swing.JButton();
+        btnCard11 = new javax.swing.JButton();
         btnCard12 = new javax.swing.JButton();
-        btnCard30 = new javax.swing.JButton();
-        btnCard24 = new javax.swing.JButton();
-        btnCard22 = new javax.swing.JButton();
-        btnCard27 = new javax.swing.JButton();
-        btnCard19 = new javax.swing.JButton();
-        btnCard23 = new javax.swing.JButton();
-        btnCard36 = new javax.swing.JButton();
-        btnCard34 = new javax.swing.JButton();
-        btnCard33 = new javax.swing.JButton();
-        btnCard21 = new javax.swing.JButton();
-        btnCard26 = new javax.swing.JButton();
-        btnCard31 = new javax.swing.JButton();
-        btnCard25 = new javax.swing.JButton();
-        btnCard28 = new javax.swing.JButton();
-        btnCard35 = new javax.swing.JButton();
-        btnCard29 = new javax.swing.JButton();
-        btnCard32 = new javax.swing.JButton();
+        btnCard13 = new javax.swing.JButton();
+        btnCard14 = new javax.swing.JButton();
+        btnCard15 = new javax.swing.JButton();
+        btnCard16 = new javax.swing.JButton();
+        btnCard17 = new javax.swing.JButton();
         btnCard18 = new javax.swing.JButton();
+        btnCard19 = new javax.swing.JButton();
         btnCard20 = new javax.swing.JButton();
+        btnCard21 = new javax.swing.JButton();
+        btnCard22 = new javax.swing.JButton();
+        btnCard23 = new javax.swing.JButton();
+        btnCard25 = new javax.swing.JButton();
+        btnCard26 = new javax.swing.JButton();
+        btnCard27 = new javax.swing.JButton();
+        btnCard28 = new javax.swing.JButton();
+        btnCard29 = new javax.swing.JButton();
+        btnCard30 = new javax.swing.JButton();
+        btnCard31 = new javax.swing.JButton();
+        btnCard32 = new javax.swing.JButton();
+        btnCard33 = new javax.swing.JButton();
+        btnCard34 = new javax.swing.JButton();
+        btnCard35 = new javax.swing.JButton();
+        btnCard36 = new javax.swing.JButton();
+        btnCard37 = new javax.swing.JButton();
+        btnCard38 = new javax.swing.JButton();
+        btnCard39 = new javax.swing.JButton();
+        btnCard40 = new javax.swing.JButton();
+        btnCard41 = new javax.swing.JButton();
+        btnCard42 = new javax.swing.JButton();
+        btnCard43 = new javax.swing.JButton();
+        btnCard44 = new javax.swing.JButton();
+        btnCard45 = new javax.swing.JButton();
+        btnCard46 = new javax.swing.JButton();
+        btnCard47 = new javax.swing.JButton();
+        btnCard48 = new javax.swing.JButton();
+        btnCard49 = new javax.swing.JButton();
+        btnCard50 = new javax.swing.JButton();
+        btnCard51 = new javax.swing.JButton();
+        btnCard52 = new javax.swing.JButton();
+        btnCard53 = new javax.swing.JButton();
+        btnCard54 = new javax.swing.JButton();
         btnCard55 = new javax.swing.JButton();
         btnCard56 = new javax.swing.JButton();
         btnCard57 = new javax.swing.JButton();
@@ -128,23 +134,6 @@ public static AlteraCarta getInstance(){
         btnCard71 = new javax.swing.JButton();
         btnCard72 = new javax.swing.JButton();
         btnCard73 = new javax.swing.JButton();
-        btnCard74 = new javax.swing.JButton();
-        btnCard75 = new javax.swing.JButton();
-        btnCard76 = new javax.swing.JButton();
-        btnCard77 = new javax.swing.JButton();
-        btnCard78 = new javax.swing.JButton();
-        btnCard79 = new javax.swing.JButton();
-        btnCard80 = new javax.swing.JButton();
-        btnCard81 = new javax.swing.JButton();
-        btnCard82 = new javax.swing.JButton();
-        btnCard83 = new javax.swing.JButton();
-        btnCard84 = new javax.swing.JButton();
-        btnCard85 = new javax.swing.JButton();
-        btnCard86 = new javax.swing.JButton();
-        btnCard87 = new javax.swing.JButton();
-        btnCard88 = new javax.swing.JButton();
-        btnCard89 = new javax.swing.JButton();
-        btnCard90 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -165,79 +154,25 @@ public static AlteraCarta getInstance(){
         btnCard1.setName("btnCard1"); // NOI18N
         btnCard1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard1changeBorder(evt);
+                changeBorder(evt);
             }
         });
         jPanel1.add(btnCard1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 110));
-
-        btnCard7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard7.setName("btnCard7"); // NOI18N
-        btnCard7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard7changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 80, 110));
-
-        btnCard13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard13.setName("btnCard13"); // NOI18N
-        btnCard13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard13changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 80, 110));
 
         btnCard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
         btnCard2.setName("btnCard2"); // NOI18N
         btnCard2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard2changeBorder(evt);
+                changeBorder(evt);
             }
         });
         jPanel1.add(btnCard2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 80, 110));
-
-        btnCard8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard8.setName("btnCard8"); // NOI18N
-        btnCard8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard8changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 80, 110));
-
-        btnCard14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard14.setName("btnCard14"); // NOI18N
-        btnCard14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard14changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 80, 110));
-
-        btnCard15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard15.setName("btnCard15"); // NOI18N
-        btnCard15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard15changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 80, 110));
-
-        btnCard9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard9.setName("btnCard9"); // NOI18N
-        btnCard9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard9changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 80, 110));
 
         btnCard3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
         btnCard3.setName("btnCard3"); // NOI18N
         btnCard3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard3changeBorder(evt);
+                changeBorder(evt);
             }
         });
         btnCard3.addActionListener(new java.awt.event.ActionListener() {
@@ -251,52 +186,16 @@ public static AlteraCarta getInstance(){
         btnCard4.setName("btnCard4"); // NOI18N
         btnCard4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard4changeBorder(evt);
+                changeBorder(evt);
             }
         });
         jPanel1.add(btnCard4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 80, 110));
-
-        btnCard10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard10.setName("btnCard10"); // NOI18N
-        btnCard10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard10changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 80, 110));
-
-        btnCard16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard16.setName("btnCard16"); // NOI18N
-        btnCard16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard16changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 80, 110));
-
-        btnCard17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard17.setName("btnCard17"); // NOI18N
-        btnCard17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard17changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 80, 110));
-
-        btnCard11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard11.setName("btnCard11"); // NOI18N
-        btnCard11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard11changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 80, 110));
 
         btnCard5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
         btnCard5.setName("btnCard5"); // NOI18N
         btnCard5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard5changeBorder(evt);
+                changeBorder(evt);
             }
         });
         jPanel1.add(btnCard5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 80, 110));
@@ -305,914 +204,260 @@ public static AlteraCarta getInstance(){
         btnCard6.setName("btnCard6"); // NOI18N
         btnCard6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard6changeBorder(evt);
+                changeBorder(evt);
             }
         });
         jPanel1.add(btnCard6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 80, 110));
 
+        btnCard7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        jPanel1.add(btnCard7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 80, 110));
+
+        btnCard8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
+        jPanel1.add(btnCard8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 80, 110));
+
+        btnCard9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 80, 110));
+
+        btnCard10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard10, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 80, 110));
+
+        btnCard11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard11, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 80, 110));
+
         btnCard12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard12.setName("btnCard12"); // NOI18N
-        btnCard12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard12changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 80, 110));
+        jPanel1.add(btnCard12, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 80, 110));
 
-        btnCard30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard30.setName("btnCard16"); // NOI18N
-        btnCard30.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCard13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard30changeBorder(evt);
+                changeBorder(evt);
             }
         });
-        jPanel1.add(btnCard30, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, 80, 110));
+        jPanel1.add(btnCard13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 80, 110));
 
-        btnCard24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard24.setName("btnCard14"); // NOI18N
-        btnCard24.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard24changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard24, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, 80, 110));
+        btnCard14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 80, 110));
 
-        btnCard22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard22.setName("btnCard2"); // NOI18N
-        btnCard22.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCard15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard22changeBorder(evt);
+                changeBorder(evt);
             }
         });
-        jPanel1.add(btnCard22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 80, 110));
+        jPanel1.add(btnCard15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 80, 110));
 
-        btnCard27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard27.setName("btnCard3"); // NOI18N
-        btnCard27.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard27changeBorder(evt);
-            }
-        });
-        btnCard27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCard27ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCard27, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 80, 110));
+        btnCard16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 80, 110));
 
-        btnCard19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard19.setName("btnCard1"); // NOI18N
-        btnCard19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard19changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 80, 110));
-
-        btnCard23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard23.setName("btnCard8"); // NOI18N
-        btnCard23.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard23changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard23, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 80, 110));
-
-        btnCard36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard36.setName("btnCard18"); // NOI18N
-        btnCard36.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard36changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard36, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 560, 80, 110));
-
-        btnCard34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard34.setName("btnCard6"); // NOI18N
-        btnCard34.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard34changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard34, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 80, 110));
-
-        btnCard33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard33.setName("btnCard5"); // NOI18N
-        btnCard33.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard33changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard33, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 80, 110));
-
-        btnCard21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard21.setName("btnCard13"); // NOI18N
-        btnCard21.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard21changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 80, 110));
-
-        btnCard26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard26.setName("btnCard9"); // NOI18N
-        btnCard26.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard26changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard26, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 80, 110));
-
-        btnCard31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard31.setName("btnCard17"); // NOI18N
-        btnCard31.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard31changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard31, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, 80, 110));
-
-        btnCard25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard25.setName("btnCard15"); // NOI18N
-        btnCard25.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard25changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard25, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, 80, 110));
-
-        btnCard28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard28.setName("btnCard4"); // NOI18N
-        btnCard28.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard28changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard28, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 80, 110));
-
-        btnCard35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard35.setName("btnCard12"); // NOI18N
-        btnCard35.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard35changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard35, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 80, 110));
-
-        btnCard29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard29.setName("btnCard10"); // NOI18N
-        btnCard29.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard29changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard29, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 80, 110));
-
-        btnCard32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard32.setName("btnCard11"); // NOI18N
-        btnCard32.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard32changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard32, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 80, 110));
+        btnCard17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 80, 110));
 
         btnCard18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard18.setName("btnCard18"); // NOI18N
-        btnCard18.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard18changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 80, 110));
+        jPanel1.add(btnCard18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 80, 110));
+
+        btnCard19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard19, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 80, 110));
 
         btnCard20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard20.setName("btnCard7"); // NOI18N
         btnCard20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard20changeBorder(evt);
+                changeBorder(evt);
             }
         });
-        jPanel1.add(btnCard20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 80, 110));
+        jPanel1.add(btnCard20, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, 80, 110));
+
+        btnCard21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard21, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 80, 110));
+
+        btnCard22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard22, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 80, 110));
+
+        btnCard23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard23, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, 80, 110));
+
+        btnCard25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard25, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 120, 80, 110));
+
+        btnCard26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 80, 110));
+
+        btnCard27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard27, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 80, 110));
+
+        btnCard28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard28, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 80, 110));
+
+        btnCard29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard29, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 80, 110));
+
+        btnCard30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard30, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 80, 110));
+
+        btnCard31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard31, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 80, 110));
+
+        btnCard32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard32, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 80, 110));
+
+        btnCard33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard33, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 80, 110));
+
+        btnCard34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard34, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, 80, 110));
+
+        btnCard35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard35, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, 80, 110));
+
+        btnCard36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard36, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 230, 80, 110));
+
+        btnCard37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard37, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 80, 110));
+
+        btnCard38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 80, 110));
+
+        btnCard39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard39, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 80, 110));
+
+        btnCard40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard40, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 80, 110));
+
+        btnCard41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard41, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 80, 110));
+
+        btnCard42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard42, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 80, 110));
+
+        btnCard43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard43, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 80, 110));
+
+        btnCard44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard44, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 80, 110));
+
+        btnCard45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard45, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 80, 110));
+
+        btnCard46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard46, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 80, 110));
+
+        btnCard47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard47, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 80, 110));
+
+        btnCard48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard48, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 340, 80, 110));
+
+        btnCard49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard49, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 340, 80, 110));
+
+        btnCard50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard50, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 80, 110));
+
+        btnCard51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard51, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 80, 110));
+
+        btnCard52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard52, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 80, 110));
+
+        btnCard53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard53, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 80, 110));
+
+        btnCard54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        jPanel1.add(btnCard54, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 80, 110));
 
         btnCard55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard55.setName("btnCard1"); // NOI18N
-        btnCard55.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard55changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard55, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 80, 110));
+        jPanel1.add(btnCard55, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 80, 110));
 
         btnCard56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard56.setName("btnCard7"); // NOI18N
-        btnCard56.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard56changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard56, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 80, 110));
+        jPanel1.add(btnCard56, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 80, 110));
 
         btnCard57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard57.setName("btnCard13"); // NOI18N
-        btnCard57.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard57changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard57, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 80, 110));
+        jPanel1.add(btnCard57, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 80, 110));
 
         btnCard58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard58.setName("btnCard2"); // NOI18N
-        btnCard58.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard58changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard58, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 80, 110));
+        jPanel1.add(btnCard58, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 80, 110));
 
         btnCard59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard59.setName("btnCard8"); // NOI18N
-        btnCard59.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard59changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard59, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, 80, 110));
+        jPanel1.add(btnCard59, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, 80, 110));
 
         btnCard60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard60.setName("btnCard14"); // NOI18N
-        btnCard60.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard60changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard60, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 80, 110));
+        jPanel1.add(btnCard60, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 450, 80, 110));
 
         btnCard61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard61.setName("btnCard15"); // NOI18N
-        btnCard61.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard61changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard61, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, 80, 110));
+        jPanel1.add(btnCard61, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 450, 80, 110));
 
         btnCard62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard62.setName("btnCard9"); // NOI18N
-        btnCard62.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard62changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard62, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 80, 110));
+        jPanel1.add(btnCard62, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 80, 110));
 
         btnCard63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard63.setName("btnCard3"); // NOI18N
-        btnCard63.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard63changeBorder(evt);
-            }
-        });
-        btnCard63.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCard63ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCard63, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 80, 110));
+        jPanel1.add(btnCard63, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, 80, 110));
 
         btnCard64.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard64.setName("btnCard4"); // NOI18N
-        btnCard64.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard64changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard64, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 80, 110));
+        jPanel1.add(btnCard64, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, 80, 110));
 
         btnCard65.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard65.setName("btnCard10"); // NOI18N
-        btnCard65.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard65changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard65, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 80, 110));
+        jPanel1.add(btnCard65, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, 80, 110));
 
         btnCard66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard66.setName("btnCard16"); // NOI18N
-        btnCard66.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard66changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard66, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, 80, 110));
+        jPanel1.add(btnCard66, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, 80, 110));
 
         btnCard67.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard67.setName("btnCard17"); // NOI18N
-        btnCard67.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard67changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard67, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 230, 80, 110));
+        jPanel1.add(btnCard67, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 560, 80, 110));
 
         btnCard68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard68.setName("btnCard11"); // NOI18N
-        btnCard68.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard68changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard68, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, 80, 110));
+        jPanel1.add(btnCard68, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 560, 80, 110));
 
         btnCard69.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard69.setName("btnCard5"); // NOI18N
-        btnCard69.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard69changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard69, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 80, 110));
+        jPanel1.add(btnCard69, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, 80, 110));
 
         btnCard70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard70.setName("btnCard6"); // NOI18N
-        btnCard70.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard70changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard70, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 80, 110));
+        jPanel1.add(btnCard70, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 80, 110));
 
         btnCard71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard71.setName("btnCard12"); // NOI18N
-        btnCard71.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard71changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard71, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 120, 80, 110));
+        jPanel1.add(btnCard71, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 560, 80, 110));
 
         btnCard72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard72.setName("btnCard18"); // NOI18N
-        btnCard72.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard72changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard72, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 80, 110));
+        jPanel1.add(btnCard72, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 560, 80, 110));
 
         btnCard73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard73.setName("btnCard1"); // NOI18N
-        btnCard73.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard73changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard73, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 80, 110));
+        jPanel1.add(btnCard73, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 80, 110));
 
-        btnCard74.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard74.setName("btnCard7"); // NOI18N
-        btnCard74.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard74changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard74, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 80, 110));
-
-        btnCard75.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard75.setName("btnCard13"); // NOI18N
-        btnCard75.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard75changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard75, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 560, 80, 110));
-
-        btnCard76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard76.setName("btnCard2"); // NOI18N
-        btnCard76.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard76changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard76, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 80, 110));
-
-        btnCard77.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard77.setName("btnCard8"); // NOI18N
-        btnCard77.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard77changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard77, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 80, 110));
-
-        btnCard78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard78.setName("btnCard14"); // NOI18N
-        btnCard78.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard78changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard78, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, 80, 110));
-
-        btnCard79.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard79.setName("btnCard15"); // NOI18N
-        btnCard79.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard79changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard79, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 80, 110));
-
-        btnCard80.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard80.setName("btnCard9"); // NOI18N
-        btnCard80.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard80changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard80, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 80, 110));
-
-        btnCard81.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard81.setName("btnCard3"); // NOI18N
-        btnCard81.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard81changeBorder(evt);
-            }
-        });
-        btnCard81.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCard81ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCard81, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 80, 110));
-
-        btnCard82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard82.setName("btnCard4"); // NOI18N
-        btnCard82.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard82changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard82, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 80, 110));
-
-        btnCard83.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard83.setName("btnCard10"); // NOI18N
-        btnCard83.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard83changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard83, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, 80, 110));
-
-        btnCard84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard84.setName("btnCard16"); // NOI18N
-        btnCard84.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard84changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard84, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 560, 80, 110));
-
-        btnCard85.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard85.setName("btnCard17"); // NOI18N
-        btnCard85.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard85changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard85, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 560, 80, 110));
-
-        btnCard86.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard86.setName("btnCard11"); // NOI18N
-        btnCard86.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard86changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard86, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 450, 80, 110));
-
-        btnCard87.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard87.setName("btnCard5"); // NOI18N
-        btnCard87.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard87changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard87, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 340, 80, 110));
-
-        btnCard88.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard88.setName("btnCard6"); // NOI18N
-        btnCard88.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard88changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard88, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 340, 80, 110));
-
-        btnCard89.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard89.setName("btnCard12"); // NOI18N
-        btnCard89.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard89changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard89, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 450, 80, 110));
-
-        btnCard90.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
-        btnCard90.setName("btnCard18"); // NOI18N
-        btnCard90.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCard90changeBorder(evt);
-            }
-        });
-        jPanel1.add(btnCard90, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 80, 110));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 980, 680));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 980, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCard1changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard1changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard1changeBorder
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
-    private void btnCard7changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard7changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard7changeBorder
-
-    private void btnCard13changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard13changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard13changeBorder
-
-    private void btnCard2changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard2changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard2changeBorder
-
-    private void btnCard8changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard8changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard8changeBorder
-
-    private void btnCard14changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard14changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard14changeBorder
-
-    private void btnCard15changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard15changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard15changeBorder
-
-    private void btnCard9changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard9changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard9changeBorder
-
-    private void btnCard3changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard3changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard3changeBorder
+    }//GEN-LAST:event_formWindowActivated
 
     private void btnCard3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCard3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCard3ActionPerformed
 
-    private void btnCard4changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard4changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard4changeBorder
-
-    private void btnCard10changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard10changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard10changeBorder
-
-    private void btnCard16changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard16changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard16changeBorder
-
-    private void btnCard17changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard17changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard17changeBorder
-
-    private void btnCard11changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard11changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard11changeBorder
-
-    private void btnCard5changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard5changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard5changeBorder
-
-    private void btnCard6changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard6changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard6changeBorder
-
-    private void btnCard12changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard12changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard12changeBorder
-
-    private void btnCard18changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard18changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard18changeBorder
-
-    private void btnCard19changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard19changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard19changeBorder
-
-    private void btnCard20changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard20changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard20changeBorder
-
-    private void btnCard21changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard21changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard21changeBorder
-
-    private void btnCard22changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard22changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard22changeBorder
-
-    private void btnCard23changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard23changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard23changeBorder
-
-    private void btnCard24changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard24changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard24changeBorder
-
-    private void btnCard25changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard25changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard25changeBorder
-
-    private void btnCard26changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard26changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard26changeBorder
-
-    private void btnCard27changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard27changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard27changeBorder
-
-    private void btnCard27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCard27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCard27ActionPerformed
-
-    private void btnCard28changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard28changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard28changeBorder
-
-    private void btnCard29changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard29changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard29changeBorder
-
-    private void btnCard30changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard30changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard30changeBorder
-
-    private void btnCard31changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard31changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard31changeBorder
-
-    private void btnCard32changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard32changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard32changeBorder
-
-    private void btnCard33changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard33changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard33changeBorder
-
-    private void btnCard34changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard34changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard34changeBorder
-
-    private void btnCard35changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard35changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard35changeBorder
-
-    private void btnCard36changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard36changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard36changeBorder
-
-    private void btnCard55changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard55changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard55changeBorder
-
-    private void btnCard56changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard56changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard56changeBorder
-
-    private void btnCard57changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard57changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard57changeBorder
-
-    private void btnCard58changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard58changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard58changeBorder
-
-    private void btnCard59changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard59changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard59changeBorder
-
-    private void btnCard60changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard60changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard60changeBorder
-
-    private void btnCard61changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard61changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard61changeBorder
-
-    private void btnCard62changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard62changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard62changeBorder
-
-    private void btnCard63changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard63changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard63changeBorder
-
-    private void btnCard63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCard63ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCard63ActionPerformed
-
-    private void btnCard64changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard64changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard64changeBorder
-
-    private void btnCard65changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard65changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard65changeBorder
-
-    private void btnCard66changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard66changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard66changeBorder
-
-    private void btnCard67changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard67changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard67changeBorder
-
-    private void btnCard68changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard68changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard68changeBorder
-
-    private void btnCard69changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard69changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard69changeBorder
-
-    private void btnCard70changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard70changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard70changeBorder
-
-    private void btnCard71changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard71changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard71changeBorder
-
-    private void btnCard72changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard72changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard72changeBorder
-
-    private void btnCard73changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard73changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard73changeBorder
-
-    private void btnCard74changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard74changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard74changeBorder
-
-    private void btnCard75changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard75changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard75changeBorder
-
-    private void btnCard76changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard76changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard76changeBorder
-
-    private void btnCard77changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard77changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard77changeBorder
-
-    private void btnCard78changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard78changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard78changeBorder
-
-    private void btnCard79changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard79changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard79changeBorder
-
-    private void btnCard80changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard80changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard80changeBorder
-
-    private void btnCard81changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard81changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard81changeBorder
-
-    private void btnCard81ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCard81ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCard81ActionPerformed
-
-    private void btnCard82changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard82changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard82changeBorder
-
-    private void btnCard83changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard83changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard83changeBorder
-
-    private void btnCard84changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard84changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard84changeBorder
-
-    private void btnCard85changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard85changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard85changeBorder
-
-    private void btnCard86changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard86changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard86changeBorder
-
-    private void btnCard87changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard87changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard87changeBorder
-
-    private void btnCard88changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard88changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard88changeBorder
-
-    private void btnCard89changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard89changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard89changeBorder
-
-    private void btnCard90changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCard90changeBorder
-        // System.out.println(evt.getComponent().getName());
-        this.escolheCarta(evt.getComponent().getName());
-    }//GEN-LAST:event_btnCard90changeBorder
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
-    }//GEN-LAST:event_formWindowActivated
+    private void changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeBorder
+JButton btn = (JButton)evt.getSource();
+Card card = new Card();
+     try {
+         card = UtilsCarta.retornaCard("createDeck1.xml", "image", btn.getName());
+     } catch (ParserConfigurationException | SAXException | IOException ex) {
+         Logger.getLogger(AlteraCarta.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    
+CriaCarta criaCarta = new CriaCarta(card);
+criaCarta.setVisible(true);
+this.setVisible(false);
+    }//GEN-LAST:event_changeBorder
 
     /**
      * @param args the command line arguments
@@ -1248,6 +493,7 @@ public static AlteraCarta getInstance(){
             }
         });
     }
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCard1;
     private javax.swing.JButton btnCard10;
@@ -1265,7 +511,6 @@ public static AlteraCarta getInstance(){
     private javax.swing.JButton btnCard21;
     private javax.swing.JButton btnCard22;
     private javax.swing.JButton btnCard23;
-    private javax.swing.JButton btnCard24;
     private javax.swing.JButton btnCard25;
     private javax.swing.JButton btnCard26;
     private javax.swing.JButton btnCard27;
@@ -1279,8 +524,26 @@ public static AlteraCarta getInstance(){
     private javax.swing.JButton btnCard34;
     private javax.swing.JButton btnCard35;
     private javax.swing.JButton btnCard36;
+    private javax.swing.JButton btnCard37;
+    private javax.swing.JButton btnCard38;
+    private javax.swing.JButton btnCard39;
     private javax.swing.JButton btnCard4;
+    private javax.swing.JButton btnCard40;
+    private javax.swing.JButton btnCard41;
+    private javax.swing.JButton btnCard42;
+    private javax.swing.JButton btnCard43;
+    private javax.swing.JButton btnCard44;
+    private javax.swing.JButton btnCard45;
+    private javax.swing.JButton btnCard46;
+    private javax.swing.JButton btnCard47;
+    private javax.swing.JButton btnCard48;
+    private javax.swing.JButton btnCard49;
     private javax.swing.JButton btnCard5;
+    private javax.swing.JButton btnCard50;
+    private javax.swing.JButton btnCard51;
+    private javax.swing.JButton btnCard52;
+    private javax.swing.JButton btnCard53;
+    private javax.swing.JButton btnCard54;
     private javax.swing.JButton btnCard55;
     private javax.swing.JButton btnCard56;
     private javax.swing.JButton btnCard57;
@@ -1302,25 +565,8 @@ public static AlteraCarta getInstance(){
     private javax.swing.JButton btnCard71;
     private javax.swing.JButton btnCard72;
     private javax.swing.JButton btnCard73;
-    private javax.swing.JButton btnCard74;
-    private javax.swing.JButton btnCard75;
-    private javax.swing.JButton btnCard76;
-    private javax.swing.JButton btnCard77;
-    private javax.swing.JButton btnCard78;
-    private javax.swing.JButton btnCard79;
     private javax.swing.JButton btnCard8;
-    private javax.swing.JButton btnCard80;
-    private javax.swing.JButton btnCard81;
-    private javax.swing.JButton btnCard82;
-    private javax.swing.JButton btnCard83;
-    private javax.swing.JButton btnCard84;
-    private javax.swing.JButton btnCard85;
-    private javax.swing.JButton btnCard86;
-    private javax.swing.JButton btnCard87;
-    private javax.swing.JButton btnCard88;
-    private javax.swing.JButton btnCard89;
     private javax.swing.JButton btnCard9;
-    private javax.swing.JButton btnCard90;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;

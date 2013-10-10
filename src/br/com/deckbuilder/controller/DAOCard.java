@@ -219,108 +219,115 @@ public static DAOCard getInstance(){
 /*     */ 
 /*  43 */     NodeList listaCharacterCards = raiz.getElementsByTagName("card");
 
-/*     */       
-                Card card = new Card();
+/*     */ 
+Card[] cartas = new Card[6]; 
+               
 /*     */ 
 /*  46 */     for (int i = 0; i < listaCharacterCards.getLength(); i++) {
 /*  47 */       System.out.println();
-
-                
+   
+MinhaCartinha minhaCartinha = new  MinhaCartinha();
+                 //Card card = new Card();
+       cartas[i] = new Card();
 /*  50 */       Element characterCard = (Element)listaCharacterCards.item(i);
 /*     */ 
 /*  52 */       Attr type = characterCard.getAttributeNode("type");
-                card.setType(type.getNodeValue());
-/*  53 */       System.out.println("Tipo da Carta: " + card.getType());
+                cartas[i].setType(type.getNodeValue());
+/*  53 */       System.out.println("Tipo da Carta: " + cartas[i].getType());
 /*     */ 
 /*  55 */       NodeList listaName = characterCard.getElementsByTagName("name");
 /*  56 */       Node name = listaName.item(0).getFirstChild();
-                card.setNome(name.getNodeValue());
-/*  57 */       System.out.println("Nome da carta: " + card.getNome());
+                cartas[i].setNome(name.getNodeValue());
+/*  57 */       System.out.println("Nome da carta: " + cartas[i].getNome());
 /*     */ 
 /*  59 */       NodeList listaInformation = characterCard.getElementsByTagName("information");
 /*  60 */       Node information = listaInformation.item(0).getFirstChild();
-                card.setInformacoes(information.getNodeValue());
-/*  61 */       System.out.println("Informacoes: " + card.getInformacoes());
+                cartas[i].setInformacoes(information.getNodeValue());
+/*  61 */       System.out.println("Informacoes: " + cartas[i].getInformacoes());
 /*     */ 
 /*  63 */       NodeList listaCost = characterCard.getElementsByTagName("cost");
 /*  64 */       Node cost = listaCost.item(0).getFirstChild();
-                card.setCusto(cost.getNodeValue());
-/*  65 */       System.out.println("Custo: " + card.getCusto());
+                cartas[i].setCusto(cost.getNodeValue());
+/*  65 */       System.out.println("Custo: " + cartas[i].getCusto());
 /*     */ 
 /*  67 */       NodeList listaPower = characterCard.getElementsByTagName("power");
 /*  68 */       Node power = listaPower.item(0).getFirstChild();
-                card.setForca(power.getNodeValue());
-/*  69 */       System.out.println("Forca: " + card.getForca());
+                cartas[i].setForca(power.getNodeValue());
+/*  69 */       System.out.println("Forca: " + cartas[i].getForca());
 /*     */ 
 /*  71 */       NodeList listaDefense = characterCard.getElementsByTagName("defense");
 /*  72 */       Node defense = listaDefense.item(0).getFirstChild();
-                card.setDefesa(defense.getNodeValue());
-/*  73 */       System.out.println("Defesa: " + card.getDefesa());
+                cartas[i].setDefesa(defense.getNodeValue());
+/*  73 */       System.out.println("Defesa: " + cartas[i].getDefesa());
 /*     */ 
 /*  71 */       NodeList listaImage = characterCard.getElementsByTagName("image");
 /*  72 */       Node image = listaImage.item(0).getFirstChild();
-                card.setImage(image.getNodeValue());
-/*  73 */       System.out.println("ID da Imagem da Carta: " + card.getImage());
+                cartas[i].setImage(image.getNodeValue());
+/*  73 */       System.out.println("ID da Imagem da Carta: " + cartas[i].getImage());
 /*     */ 
 /*  75 */       NodeList listaAbility = characterCard.getElementsByTagName("ability");
 /*  76 */       Node ability = listaAbility.item(0).getFirstChild();
-                card.setTxtAbility1Item(ability.getNodeValue(), 0);
-/*  77 */       System.out.println("Habilidade 1: " + card.getTxtAbility1Item(0));
+                cartas[i].setTxtAbility1Item(ability.getNodeValue(), 0);
+/*  77 */       System.out.println("Habilidade 1: " + cartas[i].getTxtAbility1Item(0));
 /*     */ 
 /*     */ //HAB 1 
 /*  83 */       NodeList listaOper = characterCard.getElementsByTagName("oper");
 /*  84 */       Node oper = listaOper.item(0).getFirstChild();
-                card.setOperItem(oper.getNodeValue(), 0);
-/*  85 */       System.out.println("Operacao da habilidade 1: " + card.getOperItem(0));
+                cartas[i].setOperItem(oper.getNodeValue(), 0);
+/*  85 */       System.out.println("Operacao da habilidade 1: " + cartas[i].getOperItem(0));
 /*     */ 
 /*  87 */       NodeList listaNo = characterCard.getElementsByTagName("no");
 /*  88 */       Node no = listaNo.item(0).getFirstChild();
-                card.setNoItem(no.getNodeValue(), 0);
-/*  89 */       System.out.println("Valor a ser operado da habilidade 1: " + card.getNoItem(0));
+                cartas[i].setNoItem(no.getNodeValue(), 0);
+/*  89 */       System.out.println("Valor a ser operado da habilidade 1: " + cartas[i].getNoItem(0));
 
                 //HAB 2
 /*  75 */       NodeList listaAbility1 = characterCard.getElementsByTagName("ability");
 /*  76 */       Node ability1 = listaAbility1.item(1).getFirstChild();
-                card.setTxtAbility1Item(ability1.getNodeValue(), 1);
-/*  77 */       System.out.println("Habilidade 2: " + card.getTxtAbility1Item(1));
+                cartas[i].setTxtAbility1Item(ability1.getNodeValue(), 1);
+/*  77 */       System.out.println("Habilidade 2: " + cartas[i].getTxtAbility1Item(1));
 /*     */ 
 /*  83 */       NodeList listaOper1 = characterCard.getElementsByTagName("oper");
 /*  84 */       Node oper1 = listaOper1.item(1).getFirstChild();
-                card.setOperItem(oper1.getNodeValue(), 1);
-/*  85 */       System.out.println("Operacao da habilidade 2: " + card.getOperItem(1));
+                cartas[i].setOperItem(oper1.getNodeValue(), 1);
+/*  85 */       System.out.println("Operacao da habilidade 2: " + cartas[i].getOperItem(1));
 /*     */ 
 /*  87 */       NodeList listaNo1 = characterCard.getElementsByTagName("no");
 /*  88 */       Node no1 = listaNo1.item(1).getFirstChild();
-                card.setNoItem(no1.getNodeValue(), 1);
-/*  89 */       System.out.println("Valor a ser operado da habilidade 2: " + card.getNoItem(1));
+                cartas[i].setNoItem(no1.getNodeValue(), 1);
+/*  89 */       System.out.println("Valor a ser operado da habilidade 2: " + cartas[i].getNoItem(1));
 
             //HAB 3
 /*  75 */       NodeList listaAbility2 = characterCard.getElementsByTagName("ability");
 /*  76 */       Node ability2 = listaAbility2.item(2).getFirstChild();
-                card.setTxtAbility1Item(ability2.getNodeValue(), 2);
-/*  77 */       System.out.println("Habilidade 3: " + card.getTxtAbility1Item(2));
+                cartas[i].setTxtAbility1Item(ability2.getNodeValue(), 2);
+/*  77 */       System.out.println("Habilidade 3: " + cartas[i].getTxtAbility1Item(2));
 /*     */ 
 /*     */ 
 /*  83 */       NodeList listaOper2 = characterCard.getElementsByTagName("oper");
 /*  84 */       Node oper2 = listaOper2.item(2).getFirstChild();
-                card.setOperItem(oper2.getNodeValue(), 2);
-/*  85 */       System.out.println("Operacao da habilidade 3: " + card.getOperItem(2));
+                cartas[i].setOperItem(oper2.getNodeValue(), 2);
+/*  85 */       System.out.println("Operacao da habilidade 3: " + cartas[i].getOperItem(2));
 /*     */ 
 /*  87 */       NodeList listaNo2 = characterCard.getElementsByTagName("no");
 /*  88 */       Node no2 = listaNo2.item(2).getFirstChild();
-                card.setNoItem(no2.getNodeValue(), 2);
-/*  89 */       System.out.println("Valor a ser operado da habilidade 3: " + card.getNoItem(2));
+                cartas[i].setNoItem(no2.getNodeValue(), 2);
+/*  89 */       System.out.println("Valor a ser operado da habilidade 3: " + cartas[i].getNoItem(2));
+
+minhaCartinha.setCartaCorresp(cartas[i]);
 
 AlteraCarta alteraCarta = AlteraCarta.getInstance();
 alteraCarta.setVisible(true);
 
-System.out.println("------> " + card.getImage());
+//System.out.println("------> " + card.getNome());
 
-alteraCarta.listaStr[i].setIcon(new ImageIcon(card.getImage() + ".jpg"));
+alteraCarta.listaStr[i].setIcon(new ImageIcon(cartas[i].getImage() + ".jpg"));
+alteraCarta.listaStr[i].setName(cartas[i].getImage());
+
+
+
 /*     */     }
-     //   CriaCarta criaCarta = new CriaCarta();
-      //  criaCarta.setVisible(true);
-      //  criaCarta.txtNomeCarta.setText(card.getNome());
+
 
 }    
 }

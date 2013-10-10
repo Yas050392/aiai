@@ -1,6 +1,7 @@
 /*     */ package br.com.deckbuilder.view;
 /*     */ 
 import br.com.deckbuilder.controller.DAOCard;
+import br.com.deckbuilder.controller.UtilsCarta;
 import br.com.deckbuilder.model.Card;
 import java.awt.Color;
 /*     */ import java.awt.EventQueue;
@@ -48,7 +49,15 @@ public void criaVetor() {
         
         
     }
+private static CriaCarta singleton;
 
+
+public static CriaCarta getInstance(){
+            if(CriaCarta.singleton == null){
+            CriaCarta.singleton = new CriaCarta ();
+        }
+        return CriaCarta.singleton;
+    }
 
     public void escolheCarta(String panelId) {
         int flagCardSelected = 0;
@@ -93,7 +102,12 @@ JOptionPane.showMessageDialog(null, "Você só pode escolher uma imagem por cart
 
 /*     */   }
 /*     */
-/*     
+        //Construtor para edição da carta
+        public CriaCarta(Card card)
+/*     */   {
+/*  36 */     initComponents();
+              this.setCardData(card);
+            }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -486,16 +500,7 @@ JOptionPane.showMessageDialog(null, "Você só pode escolher uma imagem por cart
 /* 275 */       this.cboCusto.setVisible(true);
 /*     */     }
 /*     */ 
-/* 278 */     if (this.tipoCarta == "Criatura") {
-/* 279 */       this.tipoCartaS = "character";
-/*     */     }
-/*     */ 
-/* 282 */     if (this.tipoCarta == "Mágica") {
-/* 283 */       this.tipoCartaS = "magic";
-/*     */     }
-/*     */ 
-/* 286 */     if (this.tipoCarta == "Recurso")
-/* 287 */       this.tipoCartaS = "resource";
+/* 278 */    tipoCartaS = UtilsCarta.converteCarta(tipoCarta.toString());
 /*     */   }//GEN-LAST:event_cboTipoCartaItemStateChanged
 /*     */ 
 /*     */   private void cboCustoItemStateChanged(ItemEvent evt){//GEN-FIRST:event_cboCustoItemStateChanged
@@ -614,6 +619,16 @@ this.setVisible(false);
 /*     */       }
 /*     */     });
 /*     */   }
+
+ private void setCardData(Card card){
+        //this.cboTipoCarta.setSelectedItem(UtilsCarta.converteCarta(card.getType()));
+        this.txtNomeCarta.setText(card.getNome());
+        this.txtAtaque.setText(card.getForca());
+        this.txtDefesa.setText(card.getDefesa());
+        this.txtInformacoes.setText(card.getInformacoes());
+        this.txtTipoCusto.setText(card.getCusto());
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanImagem;
     private javax.swing.JButton btnCard1;
