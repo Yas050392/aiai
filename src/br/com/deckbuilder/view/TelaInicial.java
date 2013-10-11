@@ -27,7 +27,17 @@ public class TelaInicial extends javax.swing.JFrame {
     public String deckName;
     public int flagCaminho = 0;
 
-    
+    private static TelaInicial singleton;
+
+
+
+public static TelaInicial getInstance(){
+            if(TelaInicial.singleton == null){
+            TelaInicial.singleton = new TelaInicial ();
+        }
+        return TelaInicial.singleton;
+    }
+
     public TelaInicial() {
         initComponents();
     }
@@ -162,7 +172,7 @@ deckName = txtNomeDeck.getText();
 /*     */ 
 /* 177 */     CriaDeck criaDeck = new CriaDeck();
 /* 178 */     criaDeck.setVisible(true);
-/* 179 */     setVisible(false);
+/* 179 */   this.setVisible(false);
     }//GEN-LAST:event_botCriarDeckMouseClicked
 
     private void botCriarDeckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botCriarDeckActionPerformed
@@ -233,7 +243,7 @@ flagCaminho = 0;
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaInicial().setVisible(true);
-                 TelaInicial telaInicial = new TelaInicial();
+                 TelaInicial telaInicial = TelaInicial.getInstance();
                 
                  telaInicial.setVisible(true);
             }
@@ -248,7 +258,7 @@ flagCaminho = 0;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField txtCaminhoModificar;
+    public javax.swing.JTextField txtCaminhoModificar;
     public javax.swing.JTextField txtNomeDeck;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,10 +3,8 @@
  * and open the template in the editor.
  */
 package br.com.deckbuilder.view;
-import br.com.deckbuilder.controller.MinhaCartinha;
 import br.com.deckbuilder.controller.UtilsCarta;
 import br.com.deckbuilder.model.Card;
-import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,18 +18,8 @@ import org.xml.sax.SAXException;
  */
 public class AlteraCarta extends javax.swing.JFrame {
     
- public JButton[] listaStr = new JButton[6];
+ public JButton[] listaStr = new JButton[73];
 
-public void criaVetor() {
-
-        listaStr[0] = btnCard1;
-        listaStr[1] = btnCard2;
-        listaStr[2] = btnCard3;
-        listaStr[3] = btnCard4;
-        listaStr[4] = btnCard5;
-        listaStr[5] = btnCard6;
-       
-    }
 
 private static AlteraCarta singleton;
 
@@ -447,9 +435,10 @@ public static AlteraCarta getInstance(){
 
     private void changeBorder(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeBorder
 JButton btn = (JButton)evt.getSource();
+//TelaInicial telaInicial = TelaInicial.getInstance();
 Card card = new Card();
      try {
-         card = UtilsCarta.retornaCard("createDeck1.xml", "image", btn.getName());
+         card = UtilsCarta.retornaCard("yasminFinal.xml", "image", btn.getName());
      } catch (ParserConfigurationException | SAXException | IOException ex) {
          Logger.getLogger(AlteraCarta.class.getName()).log(Level.SEVERE, null, ex);
      }
@@ -493,7 +482,93 @@ this.setVisible(false);
             }
         });
     }
- 
+ public void criaVetor() {
+
+        listaStr[0] = btnCard1;
+        listaStr[1] = btnCard2;
+        listaStr[2] = btnCard3;
+        listaStr[3] = btnCard4;
+        listaStr[4] = btnCard5;
+        listaStr[5] = btnCard6;
+        
+        listaStr[6] = btnCard7;
+        listaStr[7] = btnCard8;
+        listaStr[8] = btnCard9;
+        listaStr[9] = btnCard10;
+        listaStr[10] = btnCard11;
+        listaStr[11] = btnCard12;
+
+        listaStr[12] = btnCard13;
+        listaStr[13] = btnCard14;
+        listaStr[14] = btnCard15;
+        listaStr[15] = btnCard16;
+        listaStr[16] = btnCard17;
+        listaStr[17] = btnCard18;
+        
+        listaStr[18] = btnCard19;
+        listaStr[19] = btnCard20;
+        listaStr[20] = btnCard21;
+        listaStr[21] = btnCard22;
+        listaStr[22] = btnCard23;
+        listaStr[23] = btnCard25;
+
+        listaStr[24] = btnCard26;
+        listaStr[25] = btnCard27;
+        listaStr[26] = btnCard28;
+        listaStr[27] = btnCard29;
+        listaStr[28] = btnCard30;
+        listaStr[29] = btnCard31;
+        
+        listaStr[30] = btnCard32;
+        listaStr[31] = btnCard33;
+        listaStr[32] = btnCard34;
+        listaStr[33] = btnCard35;
+        listaStr[34] = btnCard36;
+        listaStr[35] = btnCard37;
+
+        listaStr[36] = btnCard38;
+        listaStr[37] = btnCard39;
+        listaStr[38] = btnCard40;
+        listaStr[39] = btnCard41;
+        listaStr[40] = btnCard42;
+        listaStr[41] = btnCard43;
+
+        listaStr[42] = btnCard44;
+        listaStr[43] = btnCard45;
+        listaStr[44] = btnCard46;
+        listaStr[45] = btnCard47;
+        listaStr[46] = btnCard48;
+        listaStr[47] = btnCard49;
+        
+        listaStr[48] = btnCard50;
+        listaStr[49] = btnCard51;
+        listaStr[50] = btnCard52;
+        listaStr[51] = btnCard53;
+        listaStr[52] = btnCard54;
+        listaStr[53] = btnCard55;
+        
+        listaStr[54] = btnCard56;
+        listaStr[55] = btnCard57;
+        listaStr[56] = btnCard58;
+        listaStr[57] = btnCard59;
+        listaStr[58] = btnCard60;
+        listaStr[59] = btnCard61;
+
+        listaStr[60] = btnCard62;
+        listaStr[61] = btnCard63;
+        listaStr[62] = btnCard64;
+        listaStr[63] = btnCard65;
+        listaStr[64] = btnCard66;
+        listaStr[65] = btnCard67;
+
+        listaStr[66] = btnCard68;
+        listaStr[67] = btnCard69;
+        listaStr[68] = btnCard70;
+        listaStr[69] = btnCard71;
+        listaStr[70] = btnCard72;
+        listaStr[71] = btnCard73;
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCard1;
     private javax.swing.JButton btnCard10;

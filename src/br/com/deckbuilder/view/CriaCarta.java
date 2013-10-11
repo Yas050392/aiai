@@ -181,7 +181,7 @@ JOptionPane.showMessageDialog(null, "Você só pode escolher uma imagem por cart
 
         deckName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         deckName.setText("deck");
-        getContentPane().add(deckName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 120, -1));
+        getContentPane().add(deckName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Características Gerais de nova carta");
@@ -583,6 +583,8 @@ this.setVisible(false);
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
      criaVetor();
+         TelaInicial telaInicial = TelaInicial.getInstance();
+    deckName.setText(telaInicial.deckName);
     }//GEN-LAST:event_formWindowActivated
 
     private void btnCard3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCard3ActionPerformed

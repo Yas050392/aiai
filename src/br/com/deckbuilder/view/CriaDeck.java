@@ -41,7 +41,15 @@ public class CriaDeck extends javax.swing.JFrame {
 /*     */   String arquivoSaida;
             String nomedodeck;
 
+private static CriaDeck singleton;
 
+
+public static CriaDeck getInstance(){
+            if(CriaDeck.singleton == null){
+            CriaDeck.singleton = new CriaDeck ();
+        }
+        return CriaDeck.singleton;
+    }
 
     public CriaDeck() {
         initComponents();
@@ -52,7 +60,7 @@ public class CriaDeck extends javax.swing.JFrame {
 /*     */     } catch (ParserConfigurationException ex) {
 /*  53 */       Logger.getLogger(CriaDeck.class.getName()).log(Level.SEVERE, null, ex);
 /*     */     }
-    
+
     }
 public void parse(String arquivoLeitura, String arquivoSaida)
 /*     */     throws SAXException, IOException, TransformerException
@@ -161,12 +169,13 @@ public void parse(String arquivoLeitura, String arquivoSaida)
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblDeckName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblDeckName.setText("deck");
-        getContentPane().add(lblDeckName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, 20));
+        getContentPane().add(lblDeckName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, 20));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Criando o Deck");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 29, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         jLabel3.setText("Quantidade de Cartas:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
@@ -215,7 +224,7 @@ public void parse(String arquivoLeitura, String arquivoSaida)
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 this.arquivoLeitura = "modelo.xml";
-/* 225 */     this.arquivoSaida = "createDeck.xml";
+/* 225 */     this.arquivoSaida = lblDeckName.getText() + ".xml";
 /*     */     try
 /*     */     {
 /* 229 */       this.doc = this.db.parse(this.arquivoLeitura);
@@ -231,15 +240,11 @@ this.arquivoLeitura = "modelo.xml";
 /* 243 */     raiz.appendChild(novoDeck);
 /*     */ 
 /* 245 */     String profeta = "modelo.xml";
-/* 246 */     String arquivo = "createDeck";
+/* 246 */     String arquivo = lblDeckName.getText();
 /*     */     try {
 /* 248 */       parse(profeta, arquivo + ".xml");
-/*     */     } catch (SAXException ex) {
+/*     */     } catch (        SAXException | IOException | TransformerException ex) {
 /* 250 */       Logger.getLogger(CriaDeck.class.getName()).log(Level.SEVERE, null, ex);
-/*     */     } catch (IOException ex) {
-/* 252 */       Logger.getLogger(CriaDeck.class.getName()).log(Level.SEVERE, null, ex);
-/*     */     } catch (TransformerException ex) {
-/* 254 */       Logger.getLogger(CriaDeck.class.getName()).log(Level.SEVERE, null, ex);
 /*     */     }
 /*     */ 
 /* 257 */     JOptionPane.showMessageDialog(null, "Informações do Deck preenchidas com sucesso!");
@@ -260,9 +265,9 @@ TelaInicial startScreen = new TelaInicial();
     }//GEN-LAST:event_cmdvoltarMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-            TelaInicial telaInicial = new TelaInicial();
-            nomedodeck = telaInicial.deckName;
-            System.out.println(nomedodeck);
+    TelaInicial telaInicial = TelaInicial.getInstance();
+    lblDeckName.setText(telaInicial.deckName);
+    nomeDeck = telaInicial.deckName;
     }//GEN-LAST:event_formWindowActivated
 
     /**

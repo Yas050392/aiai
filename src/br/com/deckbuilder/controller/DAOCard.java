@@ -4,6 +4,8 @@ import br.com.deckbuilder.model.Card;
 import br.com.deckbuilder.view.AlteraCarta;
 /*     */ //import br.com.deckbuilder.model.CardCreature;
           import br.com.deckbuilder.view.CriaCarta;
+import br.com.deckbuilder.view.CriaDeck;
+import br.com.deckbuilder.view.TelaInicial;
 /*     */ import java.io.FileOutputStream;
 /*     */ import java.io.IOException;
 /*     */ import java.util.logging.Level;
@@ -143,10 +145,12 @@ public static DAOCard getInstance(){
 /*     */ 
 /*     */   public void saveCard(Card card)
 /*     */   {
-    String arquivoLeitura="createDeck.xml";
+                TelaInicial telaInicial = TelaInicial.getInstance();
+                
+                String arquivoLeitura=telaInicial.deckName + ".xml";
     
-   if(flagCard == 1){
-/* 115 */      arquivoLeitura = "createDeck1.xml";
+            if(flagCard == 1){
+/* 115 */      arquivoLeitura = telaInicial.deckName + "Final.xml";
    }
 /* 119 */     this.dbf = DocumentBuilderFactory.newInstance();
 /*     */     try
@@ -186,11 +190,11 @@ public static DAOCard getInstance(){
 
        public void commitCards(){
            
-           
-           
-           
-            String arquivoLeitura = "createDeck.xml";
-            String arquivoSaida = "createDeck1.xml";
+            TelaInicial telaInicial = TelaInicial.getInstance();
+            
+            String arquivoLeitura = telaInicial.deckName + ".xml";
+            
+            String arquivoSaida = telaInicial.deckName + "Final.xml";
 /*     */ 
 
 /*     */ 
@@ -200,11 +204,6 @@ public static DAOCard getInstance(){
 /* 152 */       Logger.getLogger(CriaCarta.class.getName()).log(Level.SEVERE, null, ex);
 /*     */     }
 }
-       
-       /*     */   public void refreshCard()
-/*     */   {
-/* 115 */          Card card1 = new Card();
-/*     */   }
        
         public void loadCard(String arquivoXML) throws ParserConfigurationException, SAXException, IOException
 /*     */   {
@@ -220,13 +219,13 @@ public static DAOCard getInstance(){
 /*  43 */     NodeList listaCharacterCards = raiz.getElementsByTagName("card");
 
 /*     */ 
-Card[] cartas = new Card[6]; 
+Card[] cartas = new Card[listaCharacterCards.getLength()]; 
                
 /*     */ 
 /*  46 */     for (int i = 0; i < listaCharacterCards.getLength(); i++) {
 /*  47 */       System.out.println();
    
-MinhaCartinha minhaCartinha = new  MinhaCartinha();
+//MinhaCartinha minhaCartinha = new  MinhaCartinha();
                  //Card card = new Card();
        cartas[i] = new Card();
 /*  50 */       Element characterCard = (Element)listaCharacterCards.item(i);
@@ -314,14 +313,14 @@ MinhaCartinha minhaCartinha = new  MinhaCartinha();
                 cartas[i].setNoItem(no2.getNodeValue(), 2);
 /*  89 */       System.out.println("Valor a ser operado da habilidade 3: " + cartas[i].getNoItem(2));
 
-minhaCartinha.setCartaCorresp(cartas[i]);
+//minhaCartinha.setCartaCorresp(cartas[i]);
 
 AlteraCarta alteraCarta = AlteraCarta.getInstance();
 alteraCarta.setVisible(true);
 
 //System.out.println("------> " + card.getNome());
 
-alteraCarta.listaStr[i].setIcon(new ImageIcon(cartas[i].getImage() + ".jpg"));
+alteraCarta.listaStr[i].setIcon( new ImageIcon("images\\" + cartas[i].getImage() + ".jpg"));
 alteraCarta.listaStr[i].setName(cartas[i].getImage());
 
 
