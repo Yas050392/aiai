@@ -40,6 +40,7 @@ public static TelaInicial getInstance(){
 
     public TelaInicial() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**

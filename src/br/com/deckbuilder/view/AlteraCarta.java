@@ -36,6 +36,8 @@ public static AlteraCarta getInstance(){
     public AlteraCarta() {
         initComponents();
          criaVetor();
+         this.setExtendedState(MAXIMIZED_BOTH); 
+        
     }
 
     /**
@@ -133,7 +135,7 @@ public static AlteraCarta getInstance(){
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Selecione a carta do Deck que deseja alterar");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -214,15 +216,35 @@ public static AlteraCarta getInstance(){
         jPanel1.add(btnCard8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 80, 110));
 
         btnCard9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 80, 110));
 
         btnCard10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard10, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 80, 110));
 
         btnCard11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard11, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 80, 110));
 
         btnCard12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard12, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 80, 110));
 
         btnCard13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
@@ -234,6 +256,11 @@ public static AlteraCarta getInstance(){
         jPanel1.add(btnCard13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 80, 110));
 
         btnCard14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 80, 110));
 
         btnCard15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
@@ -245,15 +272,35 @@ public static AlteraCarta getInstance(){
         jPanel1.add(btnCard15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 80, 110));
 
         btnCard16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 80, 110));
 
         btnCard17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 80, 110));
 
         btnCard18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 80, 110));
 
         btnCard19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard19, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 80, 110));
 
         btnCard20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
@@ -265,162 +312,422 @@ public static AlteraCarta getInstance(){
         jPanel1.add(btnCard20, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, 80, 110));
 
         btnCard21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard21, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 80, 110));
 
         btnCard22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard22, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 80, 110));
 
         btnCard23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard23, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, 80, 110));
 
         btnCard25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard25, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 120, 80, 110));
 
         btnCard26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 80, 110));
 
         btnCard27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard27, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 80, 110));
 
         btnCard28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard28, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 80, 110));
 
         btnCard29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard29, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 80, 110));
 
         btnCard30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard30, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 80, 110));
 
         btnCard31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard31, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 80, 110));
 
         btnCard32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard32, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 80, 110));
 
         btnCard33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard33, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 80, 110));
 
         btnCard34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard34, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, 80, 110));
 
         btnCard35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard35.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard35, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, 80, 110));
 
         btnCard36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard36.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard36, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 230, 80, 110));
 
         btnCard37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard37.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard37, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 80, 110));
 
         btnCard38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard38.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 80, 110));
 
         btnCard39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard39.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard39, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 80, 110));
 
         btnCard40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard40.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard40, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 80, 110));
 
         btnCard41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard41.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard41, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 80, 110));
 
         btnCard42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard42.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard42, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 80, 110));
 
         btnCard43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard43.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard43, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 80, 110));
 
         btnCard44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard44.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard44, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 80, 110));
 
         btnCard45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard45.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard45, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 80, 110));
 
         btnCard46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard46.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard46, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 80, 110));
 
         btnCard47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard47.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard47, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 80, 110));
 
         btnCard48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard48.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard48, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 340, 80, 110));
 
         btnCard49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard49.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard49, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 340, 80, 110));
 
         btnCard50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard50.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard50, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 80, 110));
 
         btnCard51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard51.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard51, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 80, 110));
 
         btnCard52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard52.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard52, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 80, 110));
 
         btnCard53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard53.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard53, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 80, 110));
 
         btnCard54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard54.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard54, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 80, 110));
 
         btnCard55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard55.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard55, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 80, 110));
 
         btnCard56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard56.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard56, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 80, 110));
 
         btnCard57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard57.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard57, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 80, 110));
 
         btnCard58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard58.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard58, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 80, 110));
 
         btnCard59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard59.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard59, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, 80, 110));
 
         btnCard60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard60.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard60, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 450, 80, 110));
 
         btnCard61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard61.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard61, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 450, 80, 110));
 
         btnCard62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard62.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard62, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 80, 110));
 
         btnCard63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard63.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard63, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, 80, 110));
 
         btnCard64.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard64.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard64, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, 80, 110));
 
         btnCard65.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard65.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard65, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, 80, 110));
 
         btnCard66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard66.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard66, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, 80, 110));
 
         btnCard67.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard67.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard67, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 560, 80, 110));
 
         btnCard68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard68.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard68, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 560, 80, 110));
 
         btnCard69.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard69.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard69, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, 80, 110));
 
         btnCard70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard70.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard70, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, 80, 110));
 
         btnCard71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard71.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard71, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 560, 80, 110));
 
         btnCard72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard72.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard72, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 560, 80, 110));
 
         btnCard73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/mnemosyne/resources/images/fundo_carta2.jpg"))); // NOI18N
+        btnCard73.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeBorder(evt);
+            }
+        });
         jPanel1.add(btnCard73, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 80, 110));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 980, 680));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 980, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -438,7 +745,7 @@ JButton btn = (JButton)evt.getSource();
 //TelaInicial telaInicial = TelaInicial.getInstance();
 Card card = new Card();
      try {
-         card = UtilsCarta.retornaCard("yasminFinal.xml", "image", btn.getName());
+         card = UtilsCarta.retornaCard("carlosFinal.xml", "image", btn.getName());
      } catch (ParserConfigurationException | SAXException | IOException ex) {
          Logger.getLogger(AlteraCarta.class.getName()).log(Level.SEVERE, null, ex);
      }

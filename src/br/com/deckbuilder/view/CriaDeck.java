@@ -6,6 +6,8 @@ package br.com.deckbuilder.view;
 
 
 import br.com.mnemosyne.deck.Deck;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -53,6 +55,9 @@ public static CriaDeck getInstance(){
 
     public CriaDeck() {
         initComponents();
+        
+ 
+this.setExtendedState(MAXIMIZED_BOTH); 
     
     this.dbf = DocumentBuilderFactory.newInstance();
 /*     */     try {
@@ -223,15 +228,16 @@ public void parse(String arquivoLeitura, String arquivoSaida)
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-this.arquivoLeitura = "modelo.xml";
+if (Integer.parseInt(txtQtdCartas.getText()) > 90 ){
+/* 257 */     JOptionPane.showMessageDialog(null, "Número de cartas no Deck deve ser inferior a 90!");              
+}else{
+        this.arquivoLeitura = "modelo.xml";
 /* 225 */     this.arquivoSaida = lblDeckName.getText() + ".xml";
 /*     */     try
 /*     */     {
 /* 229 */       this.doc = this.db.parse(this.arquivoLeitura);
-/*     */     } catch (SAXException ex) {
+/*     */     } catch (        SAXException | IOException ex) {
 /* 231 */       Logger.getLogger(CriaDeck.class.getName()).log(Level.SEVERE, null, ex);
-/*     */     } catch (IOException ex) {
-/* 233 */       Logger.getLogger(CriaDeck.class.getName()).log(Level.SEVERE, null, ex);
 /*     */     }
 /* 235 */     Element raiz = this.doc.getDocumentElement();
 /*     */ 
@@ -247,11 +253,12 @@ this.arquivoLeitura = "modelo.xml";
 /* 250 */       Logger.getLogger(CriaDeck.class.getName()).log(Level.SEVERE, null, ex);
 /*     */     }
 /*     */ 
-/* 257 */     JOptionPane.showMessageDialog(null, "Informações do Deck preenchidas com sucesso!");
+/* 257 */     JOptionPane.showMessageDialog(null, "Informações do Deck '" + lblDeckName.getText() + "' preenchidas com sucesso!");
 /*     */ 
 /* 259 */     CriaCarta createDeck1Form = new CriaCarta();
 /* 260 */     createDeck1Form.setVisible(true);
 /* 261 */     setVisible(false);
+}
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered

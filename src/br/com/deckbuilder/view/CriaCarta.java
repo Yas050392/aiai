@@ -84,6 +84,8 @@ JOptionPane.showMessageDialog(null, "Você só pode escolher uma imagem por cart
 /*     */   public CriaCarta()
 /*     */   {
 /*  36 */     initComponents();
+
+this.setExtendedState(MAXIMIZED_BOTH); 
 /*     */ 
 /*  38 */     this.jLabel14.setVisible(false);
 /*  39 */     this.jLabel15.setVisible(false);
@@ -555,7 +557,7 @@ JOptionPane.showMessageDialog(null, "Você só pode escolher uma imagem por cart
 /* 322 */       this.custoS = this.txtTipoCusto.getText();
 card.setCusto(custoS);
 /*     */     }
-this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());              
+    this.qtdCartas = Integer.parseInt(this.mskQtdCarta.getText());              
 /*  66 */     card.setType(this.tipoCartaS);
 /*  67 */     card.setNome(this.txtNomeCarta.getText());
 /*  68 */     card.setInformacoes(this.txtInformacoes.getText());
